@@ -1,0 +1,18 @@
+{
+  "name": "endstep-light-theme",
+  "version": "0.1.0",
+  "description": "A browser extension to set a light theme on endstep.cc",
+  "keywords": [
+    "light",
+    "theme",
+    "endstep",
+    "accessibility"
+  ],
+  "license": "MIT",
+  "author": "Gabriele D'Arrigo, <darrigo.g@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  }
+}
