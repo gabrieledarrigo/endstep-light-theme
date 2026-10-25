@@ -1,5 +1,8 @@
 # Requirements
 
+Every requirement links to its GitHub issue. The issue is the source of truth.
+Project board: https://github.com/users/gabrieledarrigo/projects/3
+
 ## Goal
 
 The extension sets a light theme on every page of endstep.cc.
@@ -23,7 +26,9 @@ Supported browsers: Chrome and Firefox.
 
 ### Set up the project
 
-As a maintainer, I want the repository, the checks, and the release flow ready, so that every later issue only adds features.
+Issue: [#1](https://github.com/gabrieledarrigo/endstep-light-theme/issues/1)
+
+As a maintainer, I want the repository and the checks ready, so that every later issue only adds features.
 
 Acceptance criteria:
 
@@ -51,6 +56,8 @@ Technical tasks:
 
 ### Light theme on every page
 
+Issue: [#2](https://github.com/gabrieledarrigo/endstep-light-theme/issues/2)
+
 As a player, I want every page of endstep.cc in the light theme, so that the site is comfortable to read.
 
 Acceptance criteria:
@@ -75,6 +82,8 @@ Technical tasks:
 10. Add a manual checklist to `docs/manual-checks.md`: the pages and the game board states to look at before a release.
 
 ### Theme toggle in a popup
+
+Issue: [#3](https://github.com/gabrieledarrigo/endstep-light-theme/issues/3)
 
 As a player, I want a switch in the extension popup, so that I can turn the light theme on or off.
 
@@ -104,6 +113,8 @@ Technical tasks:
 
 ### Remember the choice
 
+Issue: [#4](https://github.com/gabrieledarrigo/endstep-light-theme/issues/4)
+
 As a player, I want the extension to remember my choice, so that I do not set it again.
 
 Acceptance criteria:
@@ -120,6 +131,8 @@ Technical tasks:
 5. Add an end-to-end test: select "dark", close the browser context, open a new one with the same profile directory, and check that endstep.cc opens dark.
 
 ### Release flow
+
+Issue: [#5](https://github.com/gabrieledarrigo/endstep-light-theme/issues/5)
 
 As a maintainer, I want a release built and published from a git tag, so that a release is one command.
 
@@ -144,6 +157,8 @@ Technical tasks:
 
 ### Minimal permissions
 
+Issue: [#6](https://github.com/gabrieledarrigo/endstep-light-theme/issues/6)
+
 As a player, I want the extension to ask only for what it needs, so that I can trust it.
 
 Acceptance criteria:
@@ -163,6 +178,8 @@ Technical tasks:
 
 ### Supported browsers
 
+Issue: [#7](https://github.com/gabrieledarrigo/endstep-light-theme/issues/7)
+
 As a player, I want the extension to work in my browser, so that I can use it without an update.
 
 Acceptance criteria:
@@ -180,6 +197,8 @@ Technical tasks:
 5. Add a Firefox item to `docs/manual-checks.md`: load the build with `npm run dev:firefox` and run the checklist once per release. End-to-end tests run in Chrome only.
 
 ### Fail safe when the site changes
+
+Issue: [#8](https://github.com/gabrieledarrigo/endstep-light-theme/issues/8)
 
 As a player, I want a readable page even after endstep.cc changes, so that the extension never breaks the site.
 
@@ -202,6 +221,8 @@ Technical tasks:
 7. Add an end-to-end test that serves a copy of the site with one token removed and checks that `<body>` keeps the dark background.
 
 ### No flash of the dark theme
+
+Issue: [#9](https://github.com/gabrieledarrigo/endstep-light-theme/issues/9)
 
 As a player, I want the page to open in the light theme from the first frame, so that I see no dark flash.
 

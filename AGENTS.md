@@ -119,4 +119,4 @@ Any other statistic must be anonymous and must be listed in the requirements fir
 
 ## 11. Open points
 
-- How requirements map to issues: one to one, or one to many. We decide when we split the requirements.
+- Requirements map to issues one to one for now. If an issue grows too large for one pull request, we split it into new issues and link them.
