@@ -41,7 +41,7 @@ Acceptance criteria:
 
 Technical tasks:
 
-1. Create the WXT project in the repository root with `npx wxt@latest init . --template vanilla --pm npm`. Keep the existing `package.json` fields: name, description, license, author.
+1. Create the WXT project in the repository root with `npx wxt@latest init . --template vanilla --pm npm`. Keep the existing `package.json` fields: name, description, license, author. Set `srcDir: "src"` in `wxt.config.ts`, so that all source files live in `src/`.
 2. Enable strict TypeScript in `tsconfig.json`: `"strict": true` and `"noUncheckedIndexedAccess": true`.
 3. Add ESLint with the TypeScript plugin and Prettier. Add the scripts `lint`, `format`, `format:check`, and `typecheck`.
 4. Add Vitest with the WXT testing helpers. Add the script `test`. Add one unit test so that the script runs.
@@ -62,7 +62,7 @@ As a player, I want every page of endstep.cc in the light theme, so that the sit
 
 Acceptance criteria:
 
-- [ ] The light theme is the one defined in `research/drafts/light.css`.
+- [ ] The light theme is the one defined in `docs/research/drafts/light.css`.
 - [ ] Every page of endstep.cc uses the light theme: home, events, decks, metagame, profile, and the game board.
 - [ ] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
 - [ ] Mana symbols and the series colours of charts stay readable and keep their meaning.
@@ -70,11 +70,11 @@ Acceptance criteria:
 
 Technical tasks:
 
-1. Create `src/theme/light.css` from `research/drafts/light.css`. Wrap every rule in the selector `html[data-elt-theme="light"]`. Add `color-scheme: light` to that selector.
-2. Create the content script `entrypoints/endstep.content.ts`. Options: `matches: ["https://endstep.cc/*"]`, `runAt: "document_start"`.
+1. Create `src/theme/light.css` from `docs/research/drafts/light.css`. Wrap every rule in the selector `html[data-elt-theme="light"]`. Add `color-scheme: light` to that selector.
+2. Create the content script `src/entrypoints/endstep.content.ts`. Options: `matches: ["https://endstep.cc/*"]`, `runAt: "document_start"`.
 3. In the content script, import the CSS as text with `?inline`. Insert a `<style id="elt-theme">` element into `document.documentElement` as the first action.
 4. Set the attribute `data-elt-theme="light"` on `<html>` when the theme is on. Remove the attribute when the theme is off. The CSS applies only while the attribute is present.
-5. Create `src/theme/inline-colors.ts`: a map from each dark colour that the site writes in `style` attributes to its light replacement. Collect the dark colours from the game view bundle with a script in `research/tools/`. Store the script in the repository.
+5. Create `src/theme/inline-colors.ts`: a map from each dark colour that the site writes in `style` attributes to its light replacement. Collect the dark colours from the game view bundle with a script in `docs/research/tools/`. Store the script in the repository.
 6. Create `src/theme/inline-fixer.ts`. It starts a `MutationObserver` on `document.documentElement` with `subtree`, `childList`, and `attributeFilter: ["style"]`. For every element with a `style` attribute, it replaces each colour found in the map. It marks the element with `data-elt-fixed` so that it does not loop.
 7. Start the fixer when the theme is on. Stop it and restore the original `style` values when the theme is off. Keep the original value in a `WeakMap`.
 8. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
@@ -101,7 +101,7 @@ Acceptance criteria:
 
 Technical tasks:
 
-1. Create `entrypoints/popup/index.html`, `entrypoints/popup/main.ts`, and `entrypoints/popup/style.css`.
+1. Create `src/entrypoints/popup/index.html`, `src/entrypoints/popup/main.ts`, and `src/entrypoints/popup/style.css`.
 2. Build the control as a radio group: a `<fieldset>` with `role="radiogroup"`, one `<input type="radio">` per theme, and a visible `<label>` per option. Values: `light`, `dark`.
 3. Read the current choice with `storage.getItem("local:theme")` and check the matching radio.
 4. On change, write the new value with `storage.setItem("local:theme", value)`. The content scripts react to the change (see "Remember the choice").
@@ -173,7 +173,7 @@ Technical tasks:
 1. In `wxt.config.ts`, set `manifest.permissions` to `["storage"]` and `manifest.host_permissions` to `["https://endstep.cc/*"]`.
 2. Do not add a background script. The popup and the content scripts talk through storage only.
 3. Add a unit test that reads the built manifest for Chrome and for Firefox and checks the two lists above exactly.
-4. Add an ESLint rule that reports `fetch`, `XMLHttpRequest`, and `WebSocket` in `src/` and `entrypoints/`.
+4. Add an ESLint rule that reports `fetch`, `XMLHttpRequest`, and `WebSocket` in `src/`.
 5. Write a `PRIVACY.md` with one paragraph: the extension stores one setting in the browser and sends nothing anywhere. The stores ask for this text.
 
 ### Supported browsers
