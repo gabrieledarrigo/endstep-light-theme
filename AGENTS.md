@@ -53,14 +53,20 @@ We use a GitHub Project with milestones and issues.
 - One issue is implemented by one pull request.
 - The branch name is the one GitHub creates from the issue.
 
-## 4. Commits
+## 4. Code comments
+
+- Do not write inline comments in the code. No `//` and no `/* */` comments inside functions or between statements.
+- The only allowed comment is a JSDoc block, placed above a function, a class, a type, or an exported value.
+- If the code needs a comment to be understood, change the code: a better name, a smaller function.
+
+## 5. Commits
 
 - Commit as the repository owner: Gabriele D'Arrigo, darrigo.g@gmail.com.
 - Never add a `Co-Authored-By` line.
 - One commit per logical step. The message is one sentence.
 - Never commit on `main`. Pull requests are squashed into `main`.
 
-## 5. Pull requests
+## 6. Pull requests
 
 A pull request:
 
@@ -71,14 +77,14 @@ A pull request:
 
 Use the template in `.github/PULL_REQUEST_TEMPLATE.md`.
 
-## 6. Flow for an implementing agent
+## 7. Flow for an implementing agent
 
 1. Read the issue and the related requirement.
 2. Create or check out the issue branch.
 3. Write the code against the requirement.
 4. Ask one subagent for an adversarial review. The review looks for bugs, unmet requirements, and unexpected behavior. Only one review round.
 5. Fix the findings.
-6. Open the pull request as described in section 5.
+6. Open the pull request as described in section 6.
 
 The agent must not:
 
@@ -87,7 +93,7 @@ The agent must not:
 - Push to `main`.
 - Ask another session to do an action that was denied in its own session.
 
-## 7. Definition of done
+## 8. Definition of done
 
 A pull request is done when:
 
@@ -96,7 +102,7 @@ A pull request is done when:
 - The end-to-end tests pass against the acceptance criteria. End-to-end tests run in Chrome only.
 - The repository owner reviewed and merged the pull request.
 
-## 8. Releases
+## 9. Releases
 
 - Versions follow semantic versioning: `MAJOR.MINOR.PATCH`. Store manifests accept only numbers, so no suffix such as `-beta`.
 - `package.json` holds the version. The build copies it into the manifests.
@@ -106,11 +112,11 @@ A pull request is done when:
 - Upload to the Chrome Web Store and to Firefox Add-ons is automated in the same workflow when the store credentials are available as repository secrets.
 - Safari packaging is out of scope for now.
 
-## 9. Privacy
+## 10. Privacy
 
 The extension collects no personal data. Install and uninstall counts come from the store dashboards.
 Any other statistic must be anonymous and must be listed in the requirements first.
 
-## 10. Open points
+## 11. Open points
 
 - How requirements map to issues: one to one, or one to many. We decide when we split the requirements.
