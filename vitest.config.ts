@@ -5,5 +5,6 @@ export default defineConfig({
   plugins: [WxtVitest()],
   test: {
     environment: "jsdom",
+    include: ["src/**/*.test.ts"],
   },
 });
