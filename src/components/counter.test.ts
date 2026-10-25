@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { setupCounter } from "./counter";
 
 describe("setupCounter", () => {
   it("should increase the counter of a button", () => {
