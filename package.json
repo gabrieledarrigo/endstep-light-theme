@@ -30,9 +30,12 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.1",
+    "@types/culori": "^4.0.1",
+    "culori": "^4.0.2",
     "eslint": "^10.13.0",
     "jiti": "^2.7.0",
     "jsdom": "^29.1.1",
+    "postcss": "^8.5.32",
     "prettier": "3.9.10",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.72.0",
