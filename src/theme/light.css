@@ -1,0 +1,141 @@
+html[data-elt-theme="light"] {
+  color-scheme: light;
+  --color-accent-chrome: #a0700e;
+  --color-accent-glint: #f6d476;
+  --color-accent-hover: #d59800;
+  --color-accent-muted: #e5ad342e;
+  --color-accent-rare: #a0700e;
+  --color-accent: #e5ad34;
+  --color-affordance-soft: #4f9b3e38;
+  --color-affordance: #4f9b3e;
+  --color-black: #000;
+  --color-border-default: #dddad5;
+  --color-border-strong: #bdbab3;
+  --color-border-subtle: #ebe9e5;
+  --color-combat-attack: #da4433;
+  --color-combat-block: #347ec4;
+  --color-elevated: #f1eee9;
+  --color-error-ink: #b7191c;
+  --color-error-muted: #fee5e1;
+  --color-error: #d73431;
+  --color-face-down-edge: #a39e94;
+  --color-face-down-surface: #d5d0c8;
+  --color-half-opponent-edge: #347ec41f;
+  --color-half-opponent: #edf5fb;
+  --color-half-self-edge: #e5ad3429;
+  --color-half-self: #f9f3e5;
+  --color-hover: #eae6dd;
+  --color-info-muted: #dfedfe;
+  --color-info: #1a73d5;
+  --color-ink-secondary: #576574;
+  --color-ink-tome: #f3eee6;
+  --color-mana-B: #443556;
+  --color-mana-G: #1aa144;
+  --color-mana-R: #ed3726;
+  --color-mana-U: #2088e9;
+  --color-mana-W: #fdefb1;
+  --color-mana-gold: #e8b616;
+  --color-mana-ink-dark: #24180a;
+  --color-mana-ink-light: #fbf8f1;
+  --color-mk-castable: #a97f05;
+  --color-mk-on-stack: #8156c0;
+  --color-mk-target-locked: #e16c0d;
+  --color-opp-turn: #5b748e;
+  --color-selection-valid: #4f9b3e;
+  --color-series-1: #3987e5;
+  --color-series-2: #d95926;
+  --color-series-3: #199e70;
+  --color-series-4: #c98500;
+  --color-series-5: #d55181;
+  --color-series-6: #008300;
+  --color-series-7: #9085e9;
+  --color-series-8: #e66767;
+  --color-series-ladder: #6e6450;
+  --color-skip-bg-deep: #cbe0fc;
+  --color-skip-bg: #e2eefd;
+  --color-skip-border: #78a1d6;
+  --color-skip: #2063b0;
+  --color-stop-opp: #347ec4;
+  --color-success-muted: #d8f4db;
+  --color-success: #078c38;
+  --color-surface: #fcfaf6;
+  --color-text-display: #41352a;
+  --color-text-inverse: #2d2114;
+  --color-text-primary: #423c35;
+  --color-text-secondary: #6e6860;
+  --color-text-tertiary: #8e8881;
+  --color-void: #f6f3ec;
+  --color-warning-muted: #feedca;
+  --color-warning: #b97500;
+  --color-white: #fff;
+  --color-zone-battlefield: #f0f1e8;
+  --color-zone-exile: #f2eefb;
+  --color-zone-graveyard: #f9ecf2;
+  --color-zone-hand: #e6f2fb;
+  --color-zone-stack: #f8efde;
+  --log-bg: #f3f0e9;
+  --log-border-soft: #a0700e40;
+  --log-border: #dddad5;
+  --log-gold-soft: #a0700e8c;
+  --log-gold: #a0700e;
+  --log-text-muted: #8e8881;
+  --log-tint-opp-bg: #d24e3e12;
+  --log-tint-opp: #d24e3ecc;
+  --log-tint-you-bg: #3080bc12;
+  --log-tint-you: #3080bcb2;
+  --es-acolyte: #048474;
+  --es-archmage: #8a57ae;
+  --es-away: #9b9891;
+  --es-bg-below: #f0ece5;
+  --es-bg: #f6f3ec;
+  --es-bloom: #e2bf7624;
+  --es-chosen-edge: #d5b36a;
+  --es-chosen: #f7eed8;
+  --es-developer: #cf4040;
+  --es-display: #41352a;
+  --es-down: #d73431;
+  --es-ember-glow: #d58d2566;
+  --es-ember-hot-glow: #a9741699;
+  --es-ember-hot: #835a14;
+  --es-ember: #d58d25;
+  --es-gold-hi: #d79b2a;
+  --es-gold-ink: #2d2114;
+  --es-gold-wash: #ebb34b26;
+  --es-gold: #e5ad34;
+  --es-line-strong: #b4b1a9;
+  --es-line: #e0ded8;
+  --es-live: #e23532;
+  --es-mage: #ad7c0a;
+  --es-muted: #777069;
+  --es-online: #449630;
+  --es-queued: #2580c1;
+  --es-raise-hi: #f1eee8;
+  --es-raise: #fcfaf6;
+  --es-select-wash: #1577c824;
+  --es-select: #1577c8;
+  --es-text: #423c35;
+  --es-up: #078c38;
+  --es-you-lift-hi: #201a1017;
+  --es-you-lift: #201a100d;
+  --es-you-line: #937540b2;
+}
+
+html[data-elt-theme="light"] .text-\[\#a08658\] {
+  color: var(--color-text-secondary);
+}
+
+html[data-elt-theme="light"] .text-\[\#7a6240\] {
+  color: var(--color-text-tertiary);
+}
+
+html[data-elt-theme="light"] .bg-\[\#0a0806\]\/85 {
+  background-color: color-mix(in oklab, var(--color-void) 85%, transparent);
+}
+
+html[data-elt-theme="light"] .from-\[\#d9a94e\] {
+  --tw-gradient-from: var(--color-accent);
+}
+
+html[data-elt-theme="light"] .to-\[\#c9973a\] {
+  --tw-gradient-to: var(--color-accent-hover);
+}
