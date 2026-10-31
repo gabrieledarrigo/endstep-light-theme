@@ -1,7 +1,11 @@
 import { defineContentScript } from "#imports";
-import { applyTheme, Theme } from "@/theme/theme";
-import { ColorFixer } from "@/theme/inline-colors";
-import lightTheme from "../theme/light.css?inline";
+import {
+  applyTheme,
+  CARD_ART_SELECTORS,
+  ColorFixer,
+  lightTheme,
+  Theme,
+} from "@/theme";
 
 export default defineContentScript({
   matches: ["https://endstep.cc/*"],
@@ -13,6 +17,6 @@ export default defineContentScript({
 
     document.documentElement.append(style);
 
-    applyTheme(Theme.light, new ColorFixer());
+    applyTheme(Theme.light, new ColorFixer(CARD_ART_SELECTORS));
   },
 });

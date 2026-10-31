@@ -6,6 +6,14 @@ export enum Theme {
 }
 
 /**
+ * Selectors for card art elements to skip when applying the theme.
+ */
+export const CARD_ART_SELECTORS = [
+  '[data-testid="card-text-fallback"]',
+  '[data-testid="effect-plaque"]',
+];
+
+/**
  * Apply the specified theme to the document.
  * @param theme The theme to apply (light or dark).
  */

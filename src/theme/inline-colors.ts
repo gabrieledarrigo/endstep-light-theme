@@ -60,11 +60,14 @@ export class ColorFixer {
 
   private observer: MutationObserver;
 
-  constructor() {
+  private readonly skipSelector: string;
+
+  constructor(skip: string[] = []) {
     this.fixedStyles = new WeakMap<Element, FixedStyle>();
     this.observer = new MutationObserver((mutations) =>
       this.handleMutation(mutations),
     );
+    this.skipSelector = skip.join(",");
   }
 
   /**
@@ -138,6 +141,10 @@ export class ColorFixer {
     }
 
     if (this.fixedStyles.get(element)?.fixed === style) {
+      return;
+    }
+
+    if (this.skipSelector && element.closest(this.skipSelector)) {
       return;
     }
 

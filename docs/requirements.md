@@ -18,6 +18,7 @@ Supported browsers: Chrome and Firefox.
 - Package manager: npm.
 - Unit tests: Vitest.
 - End-to-end tests: Playwright, in Chrome.
+- Accessibility checks: axe-core, with `@axe-core/playwright`.
 - Linting: ESLint. Formatting: Prettier.
 - Popup: plain HTML, CSS, and TypeScript. No UI framework.
 - Build tool: WXT. It generates the manifests for Chrome and Firefox, reloads during development, and builds the release zips.
@@ -67,6 +68,7 @@ Acceptance criteria:
 - [ ] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
 - [ ] Mana symbols and the series colours of charts stay readable and keep their meaning.
 - [ ] Browser controls on the page, such as scrollbars and form fields, use the light scheme.
+- [ ] On every page and on the game board, the end-to-end tests find no text below the WCAG AA contrast and no dark area.
 
 Technical tasks:
 
@@ -76,11 +78,13 @@ Technical tasks:
 4. Set the attribute `data-elt-theme="light"` on `<html>` when the theme is on. Remove the attribute when the theme is off. The CSS applies only while the attribute is present.
 5. Create `src/theme/inline-colors.ts`: a map from each dark colour that the site writes in `style` attributes to its light replacement. Collect the dark colours from the game view bundle with a script in `docs/research/tools/`. Store the script in the repository.
 6. Create `src/theme/inline-fixer.ts`. It starts a `MutationObserver` on `document.documentElement` with `subtree`, `childList`, and `attributeFilter: ["style"]`. For every element with a `style` attribute, it replaces each colour found in the map. It marks the element with `data-elt-fixed` so that it does not loop.
-7. Start the fixer when the theme is on. Stop it and restore the original `style` values when the theme is off. Keep the original value in a `WeakMap`.
+7. Start the fixer when the theme is on. Stop it and restore the original `style` values when the theme is off. Keep the original value in a `WeakMap`. The fixer receives a list of selectors for card art. It skips every element inside them.
 8. Override the dark colours that the site writes directly in its CSS rules, without a token. Collect them with a script in `docs/research/tools/`. Store the script in the repository. Add the overrides to `src/theme/light.css`. Keep the colours of mana symbols, medals, and the deck sheet. If the script cannot map a colour, write the rule by hand above the generated block.
 9. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
 10. Add an end-to-end test. It loads the extension, opens `https://endstep.cc/`, and checks that the computed background of `<body>` matches the light `--color-void`.
-11. Add a manual checklist to `docs/manual-checks.md`: the pages and the game board states to look at before a release.
+11. Add an end-to-end accessibility test with `@axe-core/playwright`. With the light theme on, run the `color-contrast` rule on every page: home, events, decks, metagame, and profile.
+12. Add an end-to-end test that finds dark areas. On every page, it reads the computed `background-color` of each visible element. A dark area is an element with a relative luminance below 0.2 and an area of 10,000 square pixels or more. If the test finds a dark area, it fails and names the element. It ignores the card art selectors of the fixer.
+13. Sign in as a guest before the tests of tasks 11 and 12. Run both tests on the game board too. To open the game board, start a game as a guest against a bot.
 
 ### Theme toggle in a popup
 

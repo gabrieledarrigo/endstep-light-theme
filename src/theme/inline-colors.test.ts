@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach, beforeEach } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import { ColorFixer } from "./inline-colors";
 import { INLINE_COLORS } from "./inline-colors";
 
@@ -13,27 +13,25 @@ describe("ColorFixer", () => {
     return element;
   }
 
-  let fixer: ColorFixer;
-
-  beforeEach(() => {
-    fixer = new ColorFixer();
-  });
-
   afterEach(() => {
-    fixer.stop();
     document.body.innerHTML = "";
   });
 
   describe("start", () => {
     it("fixes the colors already in the page when it starts", () => {
+      const fixer = new ColorFixer();
+
       const element = createElement();
 
       fixer.start();
 
       expect(element.getAttribute("style")).toBe(`color: ${light}`);
+
+      fixer.stop();
     });
 
     it("fixes the colors after an element is added to the document", async () => {
+      const fixer = new ColorFixer();
       fixer.start();
 
       const element = createElement();
@@ -42,9 +40,12 @@ describe("ColorFixer", () => {
       await Promise.resolve();
 
       expect(element.getAttribute("style")).toBe(`color: ${light}`);
+
+      fixer.stop();
     });
 
     it("fixes the colors after the style of an alement changes", async () => {
+      const fixer = new ColorFixer();
       fixer.start();
 
       const element = createElement();
@@ -56,11 +57,28 @@ describe("ColorFixer", () => {
       await Promise.resolve();
 
       expect(element.getAttribute("style")).toBe(`color: ${light}`);
+
+      fixer.stop();
+    });
+
+    it("skips element with the given selector", async () => {
+      const element = createElement();
+      element.setAttribute("id", "skip");
+
+      const fixer = new ColorFixer(['[id="skip"]']);
+      fixer.start();
+
+      await Promise.resolve();
+
+      expect(element.getAttribute("style")).toBe(`color: ${dark}`);
+
+      fixer.stop();
     });
   });
 
   describe("stop", () => {
     it("restores the old color", async () => {
+      const fixer = new ColorFixer();
       const element = createElement();
 
       fixer.start();
@@ -75,6 +93,7 @@ describe("ColorFixer", () => {
     });
 
     it("preserves the styles outside the colors", async () => {
+      const fixer = new ColorFixer();
       const element = createElement();
 
       fixer.start();
