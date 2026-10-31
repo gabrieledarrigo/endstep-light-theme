@@ -20,6 +20,7 @@ describe("ColorFixer", () => {
   });
 
   afterEach(() => {
+    fixer.stop();
     document.body.innerHTML = "";
   });
 

@@ -25,7 +25,7 @@
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "wxt build && playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

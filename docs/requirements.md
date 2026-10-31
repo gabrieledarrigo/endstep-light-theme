@@ -77,9 +77,10 @@ Technical tasks:
 5. Create `src/theme/inline-colors.ts`: a map from each dark colour that the site writes in `style` attributes to its light replacement. Collect the dark colours from the game view bundle with a script in `docs/research/tools/`. Store the script in the repository.
 6. Create `src/theme/inline-fixer.ts`. It starts a `MutationObserver` on `document.documentElement` with `subtree`, `childList`, and `attributeFilter: ["style"]`. For every element with a `style` attribute, it replaces each colour found in the map. It marks the element with `data-elt-fixed` so that it does not loop.
 7. Start the fixer when the theme is on. Stop it and restore the original `style` values when the theme is off. Keep the original value in a `WeakMap`.
-8. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
-9. Add an end-to-end test. It loads the extension, opens `https://endstep.cc/`, and checks that the computed background of `<body>` matches the light `--color-void`.
-10. Add a manual checklist to `docs/manual-checks.md`: the pages and the game board states to look at before a release.
+8. Override the dark colours that the site writes directly in its CSS rules, without a token. Collect them with a script in `docs/research/tools/`. Store the script in the repository. Add the overrides to `src/theme/light.css`. Keep the colours of mana symbols, medals, and the deck sheet. If the script cannot map a colour, write the rule by hand above the generated block.
+9. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
+10. Add an end-to-end test. It loads the extension, opens `https://endstep.cc/`, and checks that the computed background of `<body>` matches the light `--color-void`.
+11. Add a manual checklist to `docs/manual-checks.md`: the pages and the game board states to look at before a release.
 
 ### Theme toggle in a popup
 
