@@ -9,6 +9,7 @@ type TestFixtures = {
 type WorkerFixtures = {
   extensionContext: BrowserContext;
   guest: Guest;
+  game: URL;
 };
 
 const extensionPath = path.resolve(
@@ -44,13 +45,28 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
   guest: [
     async ({ extensionContext }, use) => {
       const page = await extensionContext.newPage();
-
       const endstep = new Endstep(page);
 
       const guest = await endstep.signInAsGuest();
       await page.close();
 
       await use(guest);
+    },
+    { scope: "worker" },
+  ],
+  game: [
+    async ({ guest: _guest, extensionContext }, use) => {
+      const page = await extensionContext.newPage();
+      const endstep = new Endstep(page);
+
+      const gameUrl = await endstep.playBotGame("60 Mountain");
+      await page.close();
+
+      await use(gameUrl);
+
+      const cleanup = await extensionContext.newPage();
+      await new Endstep(cleanup).concede(gameUrl);
+      await cleanup.close();
     },
     { scope: "worker" },
   ],
