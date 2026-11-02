@@ -36,11 +36,13 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
     await use(extensionContext);
   },
   extensionId: async ({ extensionContext }, use) => {
-    const worker =
-      extensionContext.serviceWorkers()[0] ??
-      (await extensionContext.waitForEvent("serviceworker"));
+    const page = await extensionContext.newPage();
 
-    await use(worker.url().split("/")[2]!);
+    await page.goto("chrome://extensions");
+    const id = await page.locator("extensions-item").first().getAttribute("id");
+    await page.close();
+
+    await use(id!);
   },
   guest: [
     async ({ extensionContext }, use) => {
