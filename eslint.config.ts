@@ -12,5 +12,11 @@ export default defineConfig({
         allowObjectPatternsAsParameters: true,
       },
     ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+      },
+    ],
   },
 });
