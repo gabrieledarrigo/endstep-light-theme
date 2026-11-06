@@ -83,13 +83,11 @@ async function main() {
         `<img src="data:image/jpeg;base64,${data}" style="display:block;width:${THUMB_WIDTH}px">`,
       );
       await page.locator("img").evaluate((img) => img.decode());
-      await page
-        .locator("img")
-        .screenshot({
-          path: path.join(outDir, "thumbs", thumb),
-          type: "jpeg",
-          quality: 72,
-        });
+      await page.locator("img").screenshot({
+        path: path.join(outDir, "thumbs", thumb),
+        type: "jpeg",
+        quality: 72,
+      });
       shots.push({
         file,
         thumb,
