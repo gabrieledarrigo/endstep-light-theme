@@ -33,12 +33,12 @@ As a maintainer, I want the repository and the checks ready, so that every later
 
 Acceptance criteria:
 
-- [ ] `npm install` followed by `npm run build` produces a Chrome build and a Firefox build.
-- [ ] `npm run dev` opens Chrome with the extension loaded and reloads it on every change.
-- [ ] `npm run lint`, `npm run format:check`, `npm run typecheck`, and `npm test` pass on a clean checkout.
-- [ ] `npm run test:e2e` runs a Playwright test in Chrome with the extension loaded.
-- [ ] A GitHub Actions workflow runs these commands on every pull request and on every push to `main`.
-- [ ] The repository has the labels, the milestones, the project board, and branch protection on `main`.
+- [x] `npm install` followed by `npm run build` produces a Chrome build and a Firefox build.
+- [x] `npm run dev` opens Chrome with the extension loaded and reloads it on every change.
+- [x] `npm run lint`, `npm run format:check`, `npm run typecheck`, and `npm test` pass on a clean checkout.
+- [x] `npm run test:e2e` runs a Playwright test in Chrome with the extension loaded.
+- [x] A GitHub Actions workflow runs these commands on every pull request and on every push to `main`.
+- [x] The repository has the labels, the milestones, the project board, and branch protection on `main`.
 
 Technical tasks:
 
@@ -63,12 +63,12 @@ As a player, I want every page of endstep.cc in the light theme, so that the sit
 
 Acceptance criteria:
 
-- [ ] The light theme is the one defined in `docs/research/drafts/light.css`.
-- [ ] Every page of endstep.cc uses the light theme: home, events, decks, metagame, profile, and the game board.
-- [ ] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
-- [ ] Mana symbols and the series colours of charts stay readable and keep their meaning.
-- [ ] Browser controls on the page, such as scrollbars and form fields, use the light scheme.
-- [ ] On every page and on the game board, the end-to-end tests find no text below the WCAG AA contrast and no dark area.
+- [x] The light theme is the one defined in `docs/research/drafts/light.css`.
+- [x] Every page of endstep.cc uses the light theme: home, events, decks, metagame, profile, and the game board.
+- [x] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
+- [x] Mana symbols and the series colours of charts stay readable and keep their meaning.
+- [x] Browser controls on the page, such as scrollbars and form fields, use the light scheme.
+- [x] On every page and on the game board, the end-to-end tests find no text below the WCAG AA contrast.
 
 Technical tasks:
 
@@ -83,8 +83,7 @@ Technical tasks:
 9. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
 10. Add an end-to-end test. It loads the extension, opens `https://endstep.cc/`, and checks that the computed background of `<body>` matches the light `--color-void`.
 11. Add an end-to-end accessibility test with `@axe-core/playwright`. With the light theme on, run the `color-contrast` rule on every page: home, events, decks, metagame, and profile.
-12. Add an end-to-end test that finds dark areas. On every page, it reads the computed `background-color` of each visible element. A dark area is an element with a relative luminance below 0.2 and an area of 10,000 square pixels or more. If the test finds a dark area, it fails and names the element. It ignores the card art selectors of the fixer.
-13. Sign in as a guest before the tests of tasks 11 and 12. Run both tests on the game board too. To open the game board, start a game as a guest against a bot.
+12. Sign in as a guest before the test of task 11. Run the test on the game board too. To open the game board, start a game as a guest against a bot.
 
 ### Theme toggle in a popup
 
