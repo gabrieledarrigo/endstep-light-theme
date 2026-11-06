@@ -49,14 +49,16 @@ test.describe("Contrast", () => {
     },
     {
       name: "decks",
-      url: () => new URL(`${Endstep.URL}`),
+      url: () => new URL(`${Endstep.URL}/decks`),
     },
     {
       name: "tournaments",
-      path: () => "/tournaments",
-      url: () => new URL(`${Endstep.URL}`),
+      url: () => new URL(`${Endstep.URL}/tournaments`),
     },
-    { name: "metagame", url: () => new URL(`${Endstep.URL}/metagame`) },
+    {
+      name: "metagame",
+      url: () => new URL(`${Endstep.URL}/metagame`),
+    },
     {
       name: "profile",
       url: (guest: Guest) => new URL(`${Endstep.URL}/u/${guest.username}`),
