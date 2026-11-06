@@ -8,7 +8,7 @@ export type Guest = {
  * Represents the Endstep web application and provides methods to interact with it.
  */
 export class Endstep {
-  public static readonly URL = "https://endstep.cc/";
+  public static readonly URL = "https://endstep.cc";
 
   constructor(public page: Page) {}
 
@@ -123,6 +123,8 @@ export class Endstep {
       .getByRole("button", { name: "Concede" })
       .click();
 
-    await this.page.getByRole("dialog", { name: "Defeat" }).waitFor();
+    await this.page
+      .getByRole("dialog", { name: "Defeat" })
+      .waitFor({ timeout: 10_000 });
   }
 }

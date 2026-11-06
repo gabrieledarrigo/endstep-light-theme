@@ -67,8 +67,9 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
       await use(gameUrl);
 
       const cleanup = await extensionContext.newPage();
-      await new Endstep(cleanup).concede(gameUrl);
-      await cleanup.close();
+      await new Endstep(cleanup).concede(gameUrl).finally(async () => {
+        await cleanup.close();
+      });
     },
     { scope: "worker" },
   ],
