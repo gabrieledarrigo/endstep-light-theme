@@ -1,7 +1,7 @@
 import { defineContentScript } from "#imports";
 import {
   applyTheme,
-  CARD_ART_SELECTORS,
+  SKIP_SELECTORS,
   ColorFixer,
   lightTheme,
   Theme,
@@ -17,6 +17,6 @@ export default defineContentScript({
 
     document.documentElement.append(style);
 
-    applyTheme(Theme.light, new ColorFixer(CARD_ART_SELECTORS));
+    applyTheme(Theme.light, new ColorFixer(SKIP_SELECTORS));
   },
 });

@@ -6,11 +6,12 @@ export enum Theme {
 }
 
 /**
- * Selectors for card art elements to skip when applying the theme.
+ * Selectors for elements to skip when applying the theme.
  */
-export const CARD_ART_SELECTORS = [
+export const SKIP_SELECTORS = [
   '[data-testid="card-text-fallback"]',
   '[data-testid="effect-plaque"]',
+  "[data-stack-item-kind]",
 ];
 
 /**
