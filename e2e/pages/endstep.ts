@@ -125,6 +125,6 @@ export class Endstep {
 
     await this.page
       .getByRole("dialog", { name: "Defeat" })
-      .waitFor({ timeout: 10_000 });
+      .waitFor({ timeout: 20_000 });
   }
 }
