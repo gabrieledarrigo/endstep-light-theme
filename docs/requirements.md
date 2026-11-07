@@ -18,6 +18,7 @@ Supported browsers: Chrome and Firefox.
 - Package manager: npm.
 - Unit tests: Vitest.
 - End-to-end tests: Playwright, in Chrome.
+- Accessibility checks: axe-core, with `@axe-core/playwright`.
 - Linting: ESLint. Formatting: Prettier.
 - Popup: plain HTML, CSS, and TypeScript. No UI framework.
 - Build tool: WXT. It generates the manifests for Chrome and Firefox, reloads during development, and builds the release zips.
@@ -32,12 +33,12 @@ As a maintainer, I want the repository and the checks ready, so that every later
 
 Acceptance criteria:
 
-- [ ] `npm install` followed by `npm run build` produces a Chrome build and a Firefox build.
-- [ ] `npm run dev` opens Chrome with the extension loaded and reloads it on every change.
-- [ ] `npm run lint`, `npm run format:check`, `npm run typecheck`, and `npm test` pass on a clean checkout.
-- [ ] `npm run test:e2e` runs a Playwright test in Chrome with the extension loaded.
-- [ ] A GitHub Actions workflow runs these commands on every pull request and on every push to `main`.
-- [ ] The repository has the labels, the milestones, the project board, and branch protection on `main`.
+- [x] `npm install` followed by `npm run build` produces a Chrome build and a Firefox build.
+- [x] `npm run dev` opens Chrome with the extension loaded and reloads it on every change.
+- [x] `npm run lint`, `npm run format:check`, `npm run typecheck`, and `npm test` pass on a clean checkout.
+- [x] `npm run test:e2e` runs a Playwright test in Chrome with the extension loaded.
+- [x] A GitHub Actions workflow runs these commands on every pull request and on every push to `main`.
+- [x] The repository has the labels, the milestones, the project board, and branch protection on `main`.
 
 Technical tasks:
 
@@ -62,24 +63,49 @@ As a player, I want every page of endstep.cc in the light theme, so that the sit
 
 Acceptance criteria:
 
-- [ ] The light theme is the one defined in `docs/research/drafts/light.css`.
-- [ ] Every page of endstep.cc uses the light theme: home, events, decks, metagame, profile, and the game board.
-- [ ] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
-- [ ] Mana symbols and the series colours of charts stay readable and keep their meaning.
-- [ ] Browser controls on the page, such as scrollbars and form fields, use the light scheme.
+- [x] The light theme is the one defined in `docs/research/drafts/light.css` and `docs/research/drafts/light-board.css`.
+- [x] Every page of endstep.cc uses the light theme: home, tournaments, decks, metagame, profile, and the game board.
+- [x] Colours that the site sets with JavaScript, such as inline styles on the game board, also follow the light theme.
+- [x] Mana symbols and the series colours of charts stay readable and keep their meaning.
+- [x] Browser controls on the page, such as scrollbars and form fields, use the light scheme.
+- [x] On every page and on the game board, the end-to-end tests find no text below the WCAG AA contrast.
 
 Technical tasks:
 
 1. Create `src/theme/light.css` from `docs/research/drafts/light.css`. Wrap every rule in the selector `html[data-elt-theme="light"]`. Add `color-scheme: light` to that selector.
 2. Create the content script `src/entrypoints/endstep.content.ts`. Options: `matches: ["https://endstep.cc/*"]`, `runAt: "document_start"`.
-3. In the content script, import the CSS as text with `?inline`. Insert a `<style id="elt-theme">` element into `document.documentElement` as the first action.
-4. Set the attribute `data-elt-theme="light"` on `<html>` when the theme is on. Remove the attribute when the theme is off. The CSS applies only while the attribute is present.
-5. Create `src/theme/inline-colors.ts`: a map from each dark colour that the site writes in `style` attributes to its light replacement. Collect the dark colours from the game view bundle with a script in `docs/research/tools/`. Store the script in the repository.
-6. Create `src/theme/inline-fixer.ts`. It starts a `MutationObserver` on `document.documentElement` with `subtree`, `childList`, and `attributeFilter: ["style"]`. For every element with a `style` attribute, it replaces each colour found in the map. It marks the element with `data-elt-fixed` so that it does not loop.
-7. Start the fixer when the theme is on. Stop it and restore the original `style` values when the theme is off. Keep the original value in a `WeakMap`.
-8. Add unit tests for the colour map and for the fixer, with a fake DOM in Vitest.
-9. Add an end-to-end test. It loads the extension, opens `https://endstep.cc/`, and checks that the computed background of `<body>` matches the light `--color-void`.
-10. Add a manual checklist to `docs/manual-checks.md`: the pages and the game board states to look at before a release.
+3. In the content script, import the CSS as text with `?inline`. Add a `<style id="elt-theme">` element to `document.documentElement` as the first action.
+4. Create `src/theme/theme.ts` with the function `applyTheme(theme, fixer)`.
+   - If the theme is light, it sets `data-elt-theme="light"` on `<html>` and starts the fixer.
+   - If the theme is dark, it removes the attribute and stops the fixer.
+   - The CSS applies only while the attribute is present.
+5. Create `src/theme/inline-colors.ts` with the map `INLINE_COLORS`. The map links each dark colour in `style` attributes to its light replacement.
+   - Write the colours as Chrome writes them in a `style` attribute: `rgb(r, g, b)` or `rgba(r, g, b, a)`.
+   - Generate the map with `docs/research/tools/inline-colors.ts`. The script reads the game view bundle. Store the script in the repository.
+   - The light values in the map are fixed colours, not tokens. If a token in `light.css` changes, run the script again with `--write`.
+6. In `src/theme/inline-colors.ts`, create the class `ColorFixer`.
+   - `start()` fixes the whole document. Then it starts a `MutationObserver` on `document.documentElement` with `subtree`, `childList`, and `attributeFilter: ["style"]`.
+   - For every element with a `style` attribute, the fixer replaces each `rgb()` or `rgba()` colour found in the map. This includes colours inside `color-mix()`.
+   - The fixer keeps the original value and the fixed value of each element in a `WeakMap`.
+   - If the `style` value is equal to the fixed value, the fixer does nothing. This prevents a loop.
+7. `stop()` disconnects the observer and restores the original `style` values.
+   - The constructor of `ColorFixer` receives a list of selectors. The fixer does not change elements inside them.
+   - The list is `SKIP_SELECTORS` in `src/theme/theme.ts`. It holds the card art and the stack items.
+   - Card art: `[data-testid="card-text-fallback"]` and `[data-testid="effect-plaque"]`.
+   - Stack items: `[data-stack-item-kind]`. They sit on the black card frame, so they keep the colours of the dark site.
+8. Override the dark colours that the site writes directly in its CSS rules, without a token.
+   - Collect them with `docs/research/tools/site-colors.ts`. Store the script in the repository.
+   - The script writes its rules in a generated block in `src/theme/light.css`. Do not edit that block by hand.
+   - Keep the colours of mana symbols, medals, and the deck sheet.
+   - If the script cannot map a colour, write the rule by hand above the generated block.
+   - Write the game board rules by hand below the generated block. They come from `docs/research/drafts/light-board.css`.
+9. Add unit tests for `applyTheme`, the colour map, and `ColorFixer`, with a fake DOM in Vitest.
+10. Add an end-to-end test. It loads the extension and opens `https://endstep.cc/`.
+    - It checks that the `<style id="elt-theme">` element is present.
+    - It checks that `<html>` has `data-elt-theme="light"`.
+    - It checks that `--color-void` has its light value, `#f6f3ec`.
+11. Add an end-to-end accessibility test with `@axe-core/playwright`. With the light theme on, run the `color-contrast` rule on every page: home, tournaments, decks, metagame, and profile.
+12. Sign in as a guest before the test of task 11. Run the test on the game board too. To open the game board, start a game as a guest against a bot.
 
 ### Theme toggle in a popup
 

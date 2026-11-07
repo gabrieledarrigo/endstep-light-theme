@@ -1,0 +1,93 @@
+/* Game board fixes for the light theme. Companion of light.css.
+   Reason: docs/research/board-review (2026-11-06). The site dims and shadows
+   elements for a dark page; on a light page these rules restore contrast.
+   Every selector is scoped to the light theme. */
+
+/* Phase tracker: tiles need a visible boundary (WCAG 1.4.11, 3:1). */
+html[data-elt-theme="light"] .wr-phase-bar--vertical .wr-pb {
+  background: var(--color-elevated);
+  border-color: var(--color-border-strong);
+}
+
+/* Labels: the dark text shadow is dirt on a light tile. */
+html[data-elt-theme="light"] .wr-phase-bar--vertical .wr-pb-label {
+  text-shadow: none;
+  color: var(--color-text-secondary);
+}
+
+/* Past phases: show "done" by a flatter tile, not by fading the text. */
+html[data-elt-theme="light"] .wr-phase-bar--vertical .wr-pb--past {
+  opacity: 1;
+  background: var(--color-void);
+  border-color: var(--color-border-default);
+}
+html[data-elt-theme="light"]
+  .wr-phase-bar--vertical
+  .wr-pb--past:not(:has(.is-set))
+  .wr-pb-label {
+  color: var(--color-text-secondary);
+}
+
+/* Section labels and the help line under the current phase. */
+html[data-elt-theme="light"] .wr-phase-bar--vertical .wr-pb-section-label,
+html[data-elt-theme="light"] .wr-phase-bar--vertical .wr-pb-now-help {
+  color: var(--color-accent-chrome);
+}
+
+/* Auto-pass buttons: lift them off the rail and give them a 3:1 border. */
+html[data-elt-theme="light"] [aria-label="Pass priority shortcuts"] button {
+  background: var(--color-elevated);
+  border-color: var(--color-border-strong);
+}
+
+/* "skip ahead": drop the 80 % opacity the site applies to the tertiary text. */
+html[data-elt-theme="light"]
+  [aria-label="Pass priority shortcuts"]
+  .text-text-tertiary\/80 {
+  color: var(--color-text-tertiary);
+}
+
+/* --- Added after the walkthrough of 2026-11-06 (not yet applied to src) --- */
+
+/* Accent used as text (PRIORITY chip, REVEALS chip, CLICK TO SELECT, ALPHA STRIKE):
+   the airy amber is a surface colour; as text it needs the deeper amber. */
+html[data-elt-theme="light"] .text-accent {
+  color: var(--color-accent-chrome);
+}
+
+/* The blue info surface (Confirm in "Pass priority until end of turn?") needs light ink. */
+html[data-elt-theme="light"] .bg-info {
+  color: #ffffff;
+}
+
+/* The active-turn wash on each battlefield half. On a dark board it is a faint gold glow;
+   on a light board the same alphas become a heavy tan fade. */
+html[data-elt-theme="light"] [data-turn="mine"][data-half="self"] {
+  --gradient-half-self: linear-gradient(
+    0deg,
+    #e5ad3433 0%,
+    #e5ad3414 32%,
+    #e5ad3408 65%,
+    transparent 100%
+  );
+  box-shadow:
+    inset 0 -3px var(--color-accent),
+    inset 0 -120px 80px -90px #e5ad3426;
+}
+html[data-elt-theme="light"] [data-turn="opp"][data-half="opp"] {
+  --gradient-half-opponent: linear-gradient(
+    180deg,
+    #347ec42e 0%,
+    #347ec412 32%,
+    #347ec408 65%,
+    transparent 100%
+  );
+  box-shadow:
+    inset 0 3px var(--color-stop-opp),
+    inset 0 120px 80px -90px #347ec426;
+}
+
+/* The stack item owner tag: decision of 2026-11-06. The tag sits on the black frame of the
+   card, not on the page, so it stays a dark pill with cream text. The fixer leaves the whole
+   stack item alone: add '[data-stack-item-kind]' to CARD_ART_SELECTORS in src/theme/theme.ts.
+   Mapping the colours gives a half-transparent light pill over black, which reads as grey. */

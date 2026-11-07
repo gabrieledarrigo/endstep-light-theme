@@ -1,0 +1,2281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Board walkthrough</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        font:
+          14px/1.5 system-ui,
+          sans-serif;
+        background: #f3f1ec;
+        color: #1f1c17;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      p {
+        max-width: 70ch;
+        margin: 0 0 12px;
+      }
+      section {
+        margin-bottom: 48px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 14px;
+      }
+      figure {
+        margin: 0;
+        background: #fff;
+        border: 1px solid #d9d3c6;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      figcaption {
+        padding: 8px 10px;
+        font-size: 13px;
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+      }
+      figcaption .n {
+        font-family: ui-monospace, monospace;
+        font-size: 11px;
+        color: #6b6457;
+      }
+      table {
+        border-collapse: collapse;
+        font-size: 13px;
+        margin-top: 12px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 5px 10px;
+        border-bottom: 1px solid #d9d3c6;
+        vertical-align: top;
+      }
+      th {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #6b6457;
+        font-weight: 500;
+      }
+      code {
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+      }
+      .sw {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #0003;
+        vertical-align: -1px;
+        margin-right: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Board walkthrough with the light theme</h1>
+    <p>
+      Two guest games against the bot, captured with the extension loaded and
+      the revised tokens plus the board rules applied. This copy holds the
+      thumbnails only; the full frames are on the design page. The rails are
+      also stored as PNG next to each game.
+    </p>
+    <section id="game1">
+      <h2>game1</h2>
+      <p>
+        Result: MATCH RECORD Victory ❦ You wrest the match from Forge AI after 9
+        turns. LIFE TOTAL 9 — 0 CARDS IN HAND 3 FINAL TURN 9 RE
+      </p>
+      <div class="grid">
+        <figure>
+          <a href="thumbs/game1-01-deck-builder.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-01-deck-builder.jpg"
+              alt="deck builder"
+          /></a>
+          <figcaption><span class="n">01</span>deck builder</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-02-lobby.jpg"
+            ><img loading="lazy" src="thumbs/game1-02-lobby.jpg" alt="lobby"
+          /></a>
+          <figcaption><span class="n">02</span>lobby</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-03-start-dialog.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-03-start-dialog.jpg"
+              alt="start dialog"
+          /></a>
+          <figcaption><span class="n">03</span>start dialog</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-04-opening-hand.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-04-opening-hand.jpg"
+              alt="opening hand"
+          /></a>
+          <figcaption><span class="n">04</span>opening hand</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-05-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-05-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">05</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-06-cast-monastery-swiftspear.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-06-cast-monastery-swiftspear.jpg"
+              alt="cast monastery swiftspear"
+          /></a>
+          <figcaption>
+            <span class="n">06</span>cast monastery swiftspear
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-07-decision-monastery-swiftspear-pay-for-monaste.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-07-decision-monastery-swiftspear-pay-for-monaste.jpg"
+              alt="decision: monastery swiftspear pay for monaste"
+          /></a>
+          <figcaption>
+            <span class="n">07</span>decision: monastery swiftspear pay for
+            monaste
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-09-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-09-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">09</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-10-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-10-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">10</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-11-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-11-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">11</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-12-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-12-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">12</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-13-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-13-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">13</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-14-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-14-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">14</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-15-after-5-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-15-after-5-passes.jpg"
+              alt="after 5 passes"
+          /></a>
+          <figcaption><span class="n">15</span>after 5 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-16-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-16-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">16</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-17-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-17-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">17</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-18-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-18-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">18</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-19-after-10-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-19-after-10-passes.jpg"
+              alt="after 10 passes"
+          /></a>
+          <figcaption><span class="n">19</span>after 10 passes</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-20-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-20-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">20</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-21-cast-goblin-guide.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-21-cast-goblin-guide.jpg"
+              alt="cast goblin guide"
+          /></a>
+          <figcaption><span class="n">21</span>cast goblin guide</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-22-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-22-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+              alt="decision: goblin guide pay for goblin guide au"
+          /></a>
+          <figcaption>
+            <span class="n">22</span>decision: goblin guide pay for goblin guide
+            au
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-24-cast-lightning-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-24-cast-lightning-bolt.jpg"
+              alt="cast lightning bolt"
+          /></a>
+          <figcaption><span class="n">24</span>cast lightning bolt</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-25-decision-lightning-bolt-select-any-target-0-1.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-25-decision-lightning-bolt-select-any-target-0-1.jpg"
+              alt="decision: lightning bolt select any target 0 1"
+          /></a>
+          <figcaption>
+            <span class="n">25</span>decision: lightning bolt select any target
+            0 1
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-26-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-26-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">26</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-27-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-27-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+              alt="decision: lightning bolt pay for lightning bol"
+          /></a>
+          <figcaption>
+            <span class="n">27</span>decision: lightning bolt pay for lightning
+            bol
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-29-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-29-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">29</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-30-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-30-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">30</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-31-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-31-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">31</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-32-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-32-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">32</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-33-after-15-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-33-after-15-passes.jpg"
+              alt="after 15 passes"
+          /></a>
+          <figcaption><span class="n">33</span>after 15 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-34-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-34-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">34</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-35-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-35-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">35</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-36-after-20-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-36-after-20-passes.jpg"
+              alt="after 20 passes"
+          /></a>
+          <figcaption><span class="n">36</span>after 20 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-37-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-37-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">37</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-38-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-38-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">38</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-39-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-39-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">39</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-40-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-40-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">40</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-41-cast-lightning-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-41-cast-lightning-bolt.jpg"
+              alt="cast lightning bolt"
+          /></a>
+          <figcaption><span class="n">41</span>cast lightning bolt</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-42-decision-lightning-bolt-select-any-target-0-1.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-42-decision-lightning-bolt-select-any-target-0-1.jpg"
+              alt="decision: lightning bolt select any target 0 1"
+          /></a>
+          <figcaption>
+            <span class="n">42</span>decision: lightning bolt select any target
+            0 1
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-43-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-43-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">43</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-44-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-44-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+              alt="decision: lightning bolt pay for lightning bol"
+          /></a>
+          <figcaption>
+            <span class="n">44</span>decision: lightning bolt pay for lightning
+            bol
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-46-cast-lava-spike.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-46-cast-lava-spike.jpg"
+              alt="cast lava spike"
+          /></a>
+          <figcaption><span class="n">46</span>cast lava spike</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-47-cast-chain-lightning.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-47-cast-chain-lightning.jpg"
+              alt="cast chain lightning"
+          /></a>
+          <figcaption><span class="n">47</span>cast chain lightning</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-48-after-25-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-48-after-25-passes.jpg"
+              alt="after 25 passes"
+          /></a>
+          <figcaption><span class="n">48</span>after 25 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-49-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-49-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">49</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-50-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-50-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">50</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-51-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-51-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">51</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-52-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-52-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">52</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-53-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-53-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">53</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-54-after-30-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-54-after-30-passes.jpg"
+              alt="after 30 passes"
+          /></a>
+          <figcaption><span class="n">54</span>after 30 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-55-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-55-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">55</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-56-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-56-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">56</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-57-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-57-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">57</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-58-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-58-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">58</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-59-cast-lightning-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-59-cast-lightning-bolt.jpg"
+              alt="cast lightning bolt"
+          /></a>
+          <figcaption><span class="n">59</span>cast lightning bolt</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-60-decision-lightning-bolt-select-any-target-0-1.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-60-decision-lightning-bolt-select-any-target-0-1.jpg"
+              alt="decision: lightning bolt select any target 0 1"
+          /></a>
+          <figcaption>
+            <span class="n">60</span>decision: lightning bolt select any target
+            0 1
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-61-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-61-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">61</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-62-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-62-decision-lightning-bolt-pay-for-lightning-bol.jpg"
+              alt="decision: lightning bolt pay for lightning bol"
+          /></a>
+          <figcaption>
+            <span class="n">62</span>decision: lightning bolt pay for lightning
+            bol
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-64-cast-lava-spike.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-64-cast-lava-spike.jpg"
+              alt="cast lava spike"
+          /></a>
+          <figcaption><span class="n">64</span>cast lava spike</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-65-cast-chain-lightning.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-65-cast-chain-lightning.jpg"
+              alt="cast chain lightning"
+          /></a>
+          <figcaption><span class="n">65</span>cast chain lightning</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-66-after-35-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-66-after-35-passes.jpg"
+              alt="after 35 passes"
+          /></a>
+          <figcaption><span class="n">66</span>after 35 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-67-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-67-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">67</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-68-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-68-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">68</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-69-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-69-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">69</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-70-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-70-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">70</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-71-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-71-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">71</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-72-after-40-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-72-after-40-passes.jpg"
+              alt="after 40 passes"
+          /></a>
+          <figcaption><span class="n">72</span>after 40 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-73-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-73-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">73</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-74-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-74-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">74</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-75-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-75-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">75</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-76-after-45-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-76-after-45-passes.jpg"
+              alt="after 45 passes"
+          /></a>
+          <figcaption><span class="n">76</span>after 45 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-77-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-77-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">77</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-78-cast-shock.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-78-cast-shock.jpg"
+              alt="cast shock"
+          /></a>
+          <figcaption><span class="n">78</span>cast shock</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-79-decision-shock-select-any-target-0-1-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-79-decision-shock-select-any-target-0-1-selected.jpg"
+              alt="decision: shock select any target 0 1 selected"
+          /></a>
+          <figcaption>
+            <span class="n">79</span>decision: shock select any target 0 1
+            selected
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-80-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-80-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">80</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game1-81-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-81-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+              alt="decision: shock pay for shock auto pay cance"
+          /></a>
+          <figcaption>
+            <span class="n">81</span>decision: shock pay for shock auto pay
+            cance
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-83-game-over.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-83-game-over.jpg"
+              alt="game over"
+          /></a>
+          <figcaption><span class="n">83</span>game over</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game1-84-game-log.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game1-84-game-log.jpg"
+              alt="game log"
+          /></a>
+          <figcaption><span class="n">84</span>game log</figcaption>
+        </figure>
+      </div>
+      <h3 style="margin-top: 20px">
+        Contrast violations found by axe during this game
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Colours</th>
+            <th>Ratio</th>
+            <th>Seen in</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>span[title=&quot;1st Strike&quot;]</code><br /><small
+                >&lt;span class=&quot;wr-pb-label&quot; title=&quot;1st
+                Strike&quot;&gt;1st&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #746d67"></span>#746d67 on
+              <span class="sw" style="background: #d3e8f7"></span>#d3e8f7
+            </td>
+            <td>4.03:1</td>
+            <td>
+              Your end step End-of-turn abilities trig; Opponent's end step
+              End-of-turn abilitie; after 30 passes; after 40 passes … (5
+              states)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #e5ad34"></span>#e5ad34 on
+              <span class="sw" style="background: #faf2e3"></span>#faf2e3
+            </td>
+            <td>1.82:1</td>
+            <td>after 10 passes; after 15 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.bg-surface\/60</code><br /><small
+                >&lt;div class=&quot;px-2 py-0.5 font-sans uppercase
+                tracking-wider border-b border-borde</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #1a73d5"></span>#1a73d5 on
+              <span class="sw" style="background: #f4f2ed"></span>#f4f2ed
+            </td>
+            <td>4.21:1</td>
+            <td>Declare attackers Respond to declared at</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #ebc063"></span>#ebc063 on
+              <span class="sw" style="background: #faf4e7"></span>#faf4e7
+            </td>
+            <td>1.56:1</td>
+            <td>Declare blockers Respond to declared blo</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #e8b74d"></span>#e8b74d on
+              <span class="sw" style="background: #faf3e5"></span>#faf3e5
+            </td>
+            <td>1.68:1</td>
+            <td>Opponent's end step End-of-turn abilitie</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #eeca7d"></span>#eeca7d on
+              <span class="sw" style="background: #fbf5ea"></span>#fbf5ea
+            </td>
+            <td>1.44:1</td>
+            <td>Declare blockers Respond to declared blo</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #edc776"></span>#edc776 on
+              <span class="sw" style="background: #faf5e9"></span>#faf5e9
+            </td>
+            <td>1.48:1</td>
+            <td>Your end step End-of-turn abilities trig</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.truncate.font-semibold.text-text-display</code><br /><small
+                >&lt;span class=&quot;font-sans font-semibold text-text-display
+                truncate min-w-0&quot; style=&quot;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #bfb1a8"></span>#bfb1a8 on
+              <span class="sw" style="background: #f9eae2"></span>#f9eae2
+            </td>
+            <td>1.77:1</td>
+            <td>after 25 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.bg-surface\/60</code><br /><small
+                >&lt;div class=&quot;px-2 py-0.5 font-sans uppercase
+                tracking-wider border-b border-borde</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #b1cbe5"></span>#b1cbe5 on
+              <span class="sw" style="background: #f6f4ed"></span>#f6f4ed
+            </td>
+            <td>1.52:1</td>
+            <td>after 25 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.overscroll-contain</code><br /><small
+                >&lt;div data-testid=&quot;ability-body&quot; class=&quot;flex-1
+                min-h-0 overflow-y-auto overscroll</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #bbb7b0"></span>#bbb7b0 on
+              <span class="sw" style="background: #f2efe9"></span>#f2efe9
+            </td>
+            <td>1.74:1</td>
+            <td>after 25 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.truncate.font-semibold.text-text-display</code><br /><small
+                >&lt;span class=&quot;font-sans font-semibold text-text-display
+                truncate min-w-0&quot; style=&quot;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #c0b2a9"></span>#c0b2a9 on
+              <span class="sw" style="background: #f9eae2"></span>#f9eae2
+            </td>
+            <td>1.75:1</td>
+            <td>after 35 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.bg-surface\/60</code><br /><small
+                >&lt;div class=&quot;px-2 py-0.5 font-sans uppercase
+                tracking-wider border-b border-borde</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #b2cce6"></span>#b2cce6 on
+              <span class="sw" style="background: #f6f4ed"></span>#f6f4ed
+            </td>
+            <td>1.5:1</td>
+            <td>after 35 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.overscroll-contain</code><br /><small
+                >&lt;div data-testid=&quot;ability-body&quot; class=&quot;flex-1
+                min-h-0 overflow-y-auto overscroll</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #bdb9b2"></span>#bdb9b2 on
+              <span class="sw" style="background: #f3f0ea"></span>#f3f0ea
+            </td>
+            <td>1.71:1</td>
+            <td>after 35 passes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="game2">
+      <h2>game2</h2>
+      <p>
+        Result: MATCH RECORD Defeat ❦ You yield the match to Forge AI after 13
+        turns. LIFE TOTAL -3 — 6 CARDS IN HAND 2 FINAL TURN 13 RE
+      </p>
+      <div class="grid">
+        <figure>
+          <a href="thumbs/game2-01-deck-builder.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-01-deck-builder.jpg"
+              alt="deck builder"
+          /></a>
+          <figcaption><span class="n">01</span>deck builder</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-02-lobby.jpg"
+            ><img loading="lazy" src="thumbs/game2-02-lobby.jpg" alt="lobby"
+          /></a>
+          <figcaption><span class="n">02</span>lobby</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-03-start-dialog.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-03-start-dialog.jpg"
+              alt="start dialog"
+          /></a>
+          <figcaption><span class="n">03</span>start dialog</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-04-opening-hand.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-04-opening-hand.jpg"
+              alt="opening hand"
+          /></a>
+          <figcaption><span class="n">04</span>opening hand</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-05-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-05-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">05</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-06-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-06-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">06</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-07-cast-goblin-guide.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-07-cast-goblin-guide.jpg"
+              alt="cast goblin guide"
+          /></a>
+          <figcaption><span class="n">07</span>cast goblin guide</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-08-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-08-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+              alt="decision: goblin guide pay for goblin guide au"
+          /></a>
+          <figcaption>
+            <span class="n">08</span>decision: goblin guide pay for goblin guide
+            au
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-10-decision-beginning-of-combat-last-chance-to-a.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-10-decision-beginning-of-combat-last-chance-to-a.jpg"
+              alt="decision: beginning of combat last chance to"
+          /></a>
+          <figcaption>
+            <span class="n">10</span>decision: beginning of combat last chance
+            to
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-11-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-11-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">11</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-12-after-5-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-12-after-5-passes.jpg"
+              alt="after 5 passes"
+          /></a>
+          <figcaption><span class="n">12</span>after 5 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-13-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-13-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">13</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-14-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-14-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">14</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-15-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-15-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">15</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-16-cast-goblin-guide.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-16-cast-goblin-guide.jpg"
+              alt="cast goblin guide"
+          /></a>
+          <figcaption><span class="n">16</span>cast goblin guide</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-17-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-17-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+              alt="decision: goblin guide pay for goblin guide au"
+          /></a>
+          <figcaption>
+            <span class="n">17</span>decision: goblin guide pay for goblin guide
+            au
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-19-cast-shock.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-19-cast-shock.jpg"
+              alt="cast shock"
+          /></a>
+          <figcaption><span class="n">19</span>cast shock</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-20-decision-shock-select-any-target-0-1-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-20-decision-shock-select-any-target-0-1-selected.jpg"
+              alt="decision: shock select any target 0 1 selected"
+          /></a>
+          <figcaption>
+            <span class="n">20</span>decision: shock select any target 0 1
+            selected
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-21-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-21-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">21</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-22-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-22-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+              alt="decision: shock pay for shock auto pay cance"
+          /></a>
+          <figcaption>
+            <span class="n">22</span>decision: shock pay for shock auto pay
+            cance
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-24-after-10-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-24-after-10-passes.jpg"
+              alt="after 10 passes"
+          /></a>
+          <figcaption><span class="n">24</span>after 10 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-25-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-25-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">25</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-26-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-26-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">26</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-27-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-27-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">27</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-28-after-15-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-28-after-15-passes.jpg"
+              alt="after 15 passes"
+          /></a>
+          <figcaption><span class="n">28</span>after 15 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-29-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-29-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">29</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-30-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-30-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">30</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-31-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-31-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">31</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-32-cast-monastery-swiftspear.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-32-cast-monastery-swiftspear.jpg"
+              alt="cast monastery swiftspear"
+          /></a>
+          <figcaption>
+            <span class="n">32</span>cast monastery swiftspear
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-33-decision-monastery-swiftspear-pay-for-monaste.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-33-decision-monastery-swiftspear-pay-for-monaste.jpg"
+              alt="decision: monastery swiftspear pay for monaste"
+          /></a>
+          <figcaption>
+            <span class="n">33</span>decision: monastery swiftspear pay for
+            monaste
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-35-cast-searing-spear.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-35-cast-searing-spear.jpg"
+              alt="cast searing spear"
+          /></a>
+          <figcaption><span class="n">35</span>cast searing spear</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-36-decision-searing-spear-select-any-target-0-1-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-36-decision-searing-spear-select-any-target-0-1-.jpg"
+              alt="decision: searing spear select any target 0 1"
+          /></a>
+          <figcaption>
+            <span class="n">36</span>decision: searing spear select any target 0
+            1
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-37-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-37-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">37</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-38-decision-searing-spear-pay-for-searing-spear-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-38-decision-searing-spear-pay-for-searing-spear-.jpg"
+              alt="decision: searing spear pay for searing spear"
+          /></a>
+          <figcaption>
+            <span class="n">38</span>decision: searing spear pay for searing
+            spear
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-40-after-20-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-40-after-20-passes.jpg"
+              alt="after 20 passes"
+          /></a>
+          <figcaption><span class="n">40</span>after 20 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-41-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-41-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">41</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-42-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-42-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">42</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-43-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-43-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">43</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-44-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-44-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">44</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-45-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-45-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">45</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-46-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-46-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">46</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-47-after-25-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-47-after-25-passes.jpg"
+              alt="after 25 passes"
+          /></a>
+          <figcaption><span class="n">47</span>after 25 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-48-decision-opponent-s-upkeep-abilities-may-trig.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-48-decision-opponent-s-upkeep-abilities-may-trig.jpg"
+              alt="decision: opponent s upkeep abilities may trig"
+          /></a>
+          <figcaption>
+            <span class="n">48</span>decision: opponent s upkeep abilities may
+            trig
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-49-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-49-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">49</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-50-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-50-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">50</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-51-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-51-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">51</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-52-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-52-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">52</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-53-cast-rift-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-53-cast-rift-bolt.jpg"
+              alt="cast rift bolt"
+          /></a>
+          <figcaption><span class="n">53</span>cast rift bolt</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-54-after-30-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-54-after-30-passes.jpg"
+              alt="after 30 passes"
+          /></a>
+          <figcaption><span class="n">54</span>after 30 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-55-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-55-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">55</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-56-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-56-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">56</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-57-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-57-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">57</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-58-after-35-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-58-after-35-passes.jpg"
+              alt="after 35 passes"
+          /></a>
+          <figcaption><span class="n">58</span>after 35 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-59-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-59-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">59</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-60-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-60-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">60</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-61-after-land.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-61-after-land.jpg"
+              alt="after land"
+          /></a>
+          <figcaption><span class="n">61</span>after land</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-62-cast-shock.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-62-cast-shock.jpg"
+              alt="cast shock"
+          /></a>
+          <figcaption><span class="n">62</span>cast shock</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-63-decision-shock-select-any-target-0-1-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-63-decision-shock-select-any-target-0-1-selected.jpg"
+              alt="decision: shock select any target 0 1 selected"
+          /></a>
+          <figcaption>
+            <span class="n">63</span>decision: shock select any target 0 1
+            selected
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-64-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-64-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">64</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-65-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-65-decision-shock-pay-for-shock-auto-pay-a-cance.jpg"
+              alt="decision: shock pay for shock auto pay cance"
+          /></a>
+          <figcaption>
+            <span class="n">65</span>decision: shock pay for shock auto pay
+            cance
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-67-cast-rift-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-67-cast-rift-bolt.jpg"
+              alt="cast rift bolt"
+          /></a>
+          <figcaption><span class="n">67</span>cast rift bolt</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-68-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-68-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">68</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-69-after-40-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-69-after-40-passes.jpg"
+              alt="after 40 passes"
+          /></a>
+          <figcaption><span class="n">69</span>after 40 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-70-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-70-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">70</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-71-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-71-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">71</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-72-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-72-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">72</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-73-after-45-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-73-after-45-passes.jpg"
+              alt="after 45 passes"
+          /></a>
+          <figcaption><span class="n">73</span>after 45 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-74-decision-chain-lightning-chain-lightning-116-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-74-decision-chain-lightning-chain-lightning-116-.jpg"
+              alt="decision: chain lightning chain lightning 116"
+          /></a>
+          <figcaption>
+            <span class="n">74</span>decision: chain lightning chain lightning
+            116
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-76-decision-chain-lightning-select-any-target-0-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-76-decision-chain-lightning-select-any-target-0-.jpg"
+              alt="decision: chain lightning select any target 0"
+          /></a>
+          <figcaption>
+            <span class="n">76</span>decision: chain lightning select any target
+            0
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-77-after-target.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-77-after-target.jpg"
+              alt="after target"
+          /></a>
+          <figcaption><span class="n">77</span>after target</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-78-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-78-decision-opponent-s-end-step-end-of-turn-abil.jpg"
+              alt="decision: opponent s end step end of turn abil"
+          /></a>
+          <figcaption>
+            <span class="n">78</span>decision: opponent s end step end of turn
+            abil
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-79-cast-goblin-guide.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-79-cast-goblin-guide.jpg"
+              alt="cast goblin guide"
+          /></a>
+          <figcaption><span class="n">79</span>cast goblin guide</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-80-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-80-decision-goblin-guide-pay-for-goblin-guide-au.jpg"
+              alt="decision: goblin guide pay for goblin guide au"
+          /></a>
+          <figcaption>
+            <span class="n">80</span>decision: goblin guide pay for goblin guide
+            au
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-82-cast-rift-bolt.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-82-cast-rift-bolt.jpg"
+              alt="cast rift bolt"
+          /></a>
+          <figcaption><span class="n">82</span>cast rift bolt</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-83-after-50-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-83-after-50-passes.jpg"
+              alt="after 50 passes"
+          /></a>
+          <figcaption><span class="n">83</span>after 50 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-84-decision-click-your-creatures-to-attack-click.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-84-decision-click-your-creatures-to-attack-click.jpg"
+              alt="decision: click your creatures to attack click"
+          /></a>
+          <figcaption>
+            <span class="n">84</span>decision: click your creatures to attack
+            click
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-85-attackers-selected.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-85-attackers-selected.jpg"
+              alt="attackers selected"
+          /></a>
+          <figcaption><span class="n">85</span>attackers selected</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-86-after-attack.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-86-after-attack.jpg"
+              alt="after attack"
+          /></a>
+          <figcaption><span class="n">86</span>after attack</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-87-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-87-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">87</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-88-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-88-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">88</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-89-decision-your-end-step-end-of-turn-abilities-.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-89-decision-your-end-step-end-of-turn-abilities-.jpg"
+              alt="decision: your end step end of turn abilities"
+          /></a>
+          <figcaption>
+            <span class="n">89</span>decision: your end step end of turn
+            abilities
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-90-after-55-passes.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-90-after-55-passes.jpg"
+              alt="after 55 passes"
+          /></a>
+          <figcaption><span class="n">90</span>after 55 passes</figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-91-decision-opponent-s-upkeep-abilities-may-trig.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-91-decision-opponent-s-upkeep-abilities-may-trig.jpg"
+              alt="decision: opponent s upkeep abilities may trig"
+          /></a>
+          <figcaption>
+            <span class="n">91</span>decision: opponent s upkeep abilities may
+            trig
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-92-decision-declare-attackers-respond-to-declare.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-92-decision-declare-attackers-respond-to-declare.jpg"
+              alt="decision: declare attackers respond to declare"
+          /></a>
+          <figcaption>
+            <span class="n">92</span>decision: declare attackers respond to
+            declare
+          </figcaption>
+        </figure>
+        <figure>
+          <a
+            href="thumbs/game2-93-decision-declare-blockers-respond-to-declared.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-93-decision-declare-blockers-respond-to-declared.jpg"
+              alt="decision: declare blockers respond to declared"
+          /></a>
+          <figcaption>
+            <span class="n">93</span>decision: declare blockers respond to
+            declared
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-94-game-over.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-94-game-over.jpg"
+              alt="game over"
+          /></a>
+          <figcaption><span class="n">94</span>game over</figcaption>
+        </figure>
+        <figure>
+          <a href="thumbs/game2-95-game-log.jpg"
+            ><img
+              loading="lazy"
+              src="thumbs/game2-95-game-log.jpg"
+              alt="game log"
+          /></a>
+          <figcaption><span class="n">95</span>game log</figcaption>
+        </figure>
+      </div>
+      <h3 style="margin-top: 20px">
+        Contrast violations found by axe during this game
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Colours</th>
+            <th>Ratio</th>
+            <th>Seen in</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <code>span[title=&quot;1st Strike&quot;]</code><br /><small
+                >&lt;span class=&quot;wr-pb-label&quot; title=&quot;1st
+                Strike&quot;&gt;1st&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #746d67"></span>#746d67 on
+              <span class="sw" style="background: #d3e8f7"></span>#d3e8f7
+            </td>
+            <td>4.03:1</td>
+            <td>
+              Opponent's end step End-of-turn abilitie; after 5 passes; Your end
+              step End-of-turn abilities trig; after 40 passes … (7 states)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>.bg-surface\/60</code><br /><small
+                >&lt;div class=&quot;px-2 py-0.5 font-sans uppercase
+                tracking-wider border-b border-borde</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #1a73d5"></span>#1a73d5 on
+              <span class="sw" style="background: #f4f2ed"></span>#f4f2ed
+            </td>
+            <td>4.21:1</td>
+            <td>
+              Declare attackers Respond to declared at; Opponent's upkeep
+              Abilities may trigger.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #edc97a"></span>#edc97a on
+              <span class="sw" style="background: #fbf5ea"></span>#fbf5ea
+            </td>
+            <td>1.46:1</td>
+            <td>after 15 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #eeca7d"></span>#eeca7d on
+              <span class="sw" style="background: #fbf5ea"></span>#fbf5ea
+            </td>
+            <td>1.44:1</td>
+            <td>Declare blockers Respond to declared blo</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #e5ad34"></span>#e5ad34 on
+              <span class="sw" style="background: #faf2e3"></span>#faf2e3
+            </td>
+            <td>1.82:1</td>
+            <td>Opponent's end step End-of-turn abilitie</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #eabd5c"></span>#eabd5c on
+              <span class="sw" style="background: #faf4e7"></span>#faf4e7
+            </td>
+            <td>1.6:1</td>
+            <td>Declare blockers Respond to declared blo</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #e8b64a"></span>#e8b64a on
+              <span class="sw" style="background: #faf3e5"></span>#faf3e5
+            </td>
+            <td>1.69:1</td>
+            <td>Your end step End-of-turn abilities trig</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #edc877"></span>#edc877 on
+              <span class="sw" style="background: #faf5e9"></span>#faf5e9
+            </td>
+            <td>1.47:1</td>
+            <td>after 55 passes</td>
+          </tr>
+          <tr>
+            <td>
+              <code>.px-2\.5 &gt; span:nth-child(1)</code><br /><small
+                >&lt;span&gt;Reveals&lt;/span&gt;</small
+              >
+            </td>
+            <td>
+              <span class="sw" style="background: #e6af3a"></span>#e6af3a on
+              <span class="sw" style="background: #faf3e3"></span>#faf3e3
+            </td>
+            <td>1.79:1</td>
+            <td>Opponent's upkeep Abilities may trigger.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
