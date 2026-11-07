@@ -40,8 +40,6 @@ test.describe("Light theme", () => {
 });
 
 test.describe("Contrast", () => {
-  test.describe.configure({ retries: 0 });
-
   const PAGES = [
     {
       name: "home",

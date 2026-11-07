@@ -95,8 +95,15 @@ export class Endstep {
     await this.page.waitForURL(/\/game\//);
     await this.page.getByTestId("game-root").waitFor();
 
-    await this.page.getByRole("button", { name: "Play first" }).click();
-    await this.page.getByRole("button", { name: "Keep 7" }).click();
+    const playFirst = this.page.getByRole("button", { name: "Play first" });
+    const keep = this.page.getByRole("button", { name: "Keep 7" });
+
+    await playFirst.or(keep).first().waitFor();
+    if (await playFirst.isVisible()) {
+      await playFirst.click();
+    }
+    await keep.click();
+
     await this.page.getByRole("button", { name: "Mountain" }).first().click();
 
     const url = this.page.url();
