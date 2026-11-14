@@ -51,7 +51,7 @@ test.describe("Light theme", () => {
         .getPropertyValue("--color-void")
         .trim(),
     );
-    expect(voidColor).toBe("#f6f3ec");
+    expect(voidColor).toBe("#ede7db");
   });
 });
 
