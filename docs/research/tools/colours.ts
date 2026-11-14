@@ -22,6 +22,7 @@ export const DARK_TOKENS = path.join(
   "docs/research/original-palette.css",
 );
 export const LIGHT_CSS = path.join(ROOT, "src/theme/light.css");
+export const TOKENS_CSS = path.join(ROOT, "src/theme/tokens.css");
 export const LIGHT_SELECTOR = 'html[data-elt-theme="light"]';
 
 /**

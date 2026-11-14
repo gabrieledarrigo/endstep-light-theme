@@ -1,24 +1,72 @@
 import "./style.css";
-import typescriptLogo from "@/assets/typescript.svg";
-import wxtLogo from "/wxt.svg";
-import { setupCounter } from "@/components/counter";
+import { browser } from "#imports";
+import { Theme, themePreference } from "@/theme";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div>
-    <a href="https://wxt.dev" target="_blank">
-      <img src="${wxtLogo}" class="logo" alt="WXT logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>WXT + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the WXT and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+/**
+ * Renders the description of the current page in the popup.
+ * On other websites, it prompts the user to open endstep.cc to see the theme and it disables the theme selector.
+ */
+async function renderDescription() {
+  const tabs = await browser.tabs.query({
+    active: true,
+    currentWindow: true,
+  });
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+  const current = tabs
+    .filter((tab) => {
+      return tab.url?.startsWith("https://endstep.cc") ?? false;
+    })
+    .at(0);
+
+  const themeSelector = document.querySelector(".theme-selector")!;
+  const description = document.querySelector("#description")!;
+
+  if (!current) {
+    description.innerHTML = ` Open <a href="https://endstep.cc" target="_blank" rel="noopener noreferrer" class="link">endstep.cc</a> to see the theme.`;
+  } else {
+    themeSelector.removeAttribute("disabled");
+  }
+}
+
+/**
+ * Renders the version of the extension in the popup.
+ */
+function renderVersion() {
+  const version = document.querySelector("#version")!;
+
+  version.innerHTML = `v${browser.runtime.getManifest().version}`;
+}
+
+/**
+ * Sets the theme value based on the stored theme in local storage.
+ */
+async function setThemeValue() {
+  const theme = await themePreference.getValue();
+  const toggle = document.querySelector(`#${theme}`);
+
+  if (!toggle) {
+    return;
+  }
+
+  (toggle as HTMLInputElement).checked = true;
+}
+
+/**
+ * Handles the change event for the theme selector and updates the stored theme value accordingly.
+ */
+function handleThemeChange() {
+  const themeSelector = document.querySelector(".theme-selector")!;
+
+  themeSelector.addEventListener("change", (event) => {
+    const { value: theme } = event.target as HTMLInputElement;
+
+    themePreference.setValue(theme as Theme);
+  });
+}
+
+(async function main() {
+  renderVersion();
+  await setThemeValue();
+  handleThemeChange();
+  await renderDescription();
+})();

@@ -1,97 +1,123 @@
+@import "../../theme/tokens.css";
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  width: 360px;
+  background: #fcfaf6ff;
+}
+
+main {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  min-height: 220px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+header {
+  border-bottom: 1px solid var(--color-border-default);
+  padding: 16px;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+header h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #54bc4ae0);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+section {
+  padding: 0 16px;
 }
 
-.card {
-  padding: 2em;
+section p {
+  color: #41352a;
 }
 
-.read-the-docs {
-  color: #888;
+.theme-selector {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-face-down-edge);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.theme-selector:disabled {
+  background: rgb(239, 239, 239);
+}
+
+.theme-selector label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 30px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.1s ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.theme-selector input:checked + label {
+  background: var(--color-surface);
+}
+
+.theme-selector input[value="light"]:checked + label {
+  box-shadow: 2px 2px 4px 0px #0003;
+}
+
+.theme-selector input[value="dark"]:checked + label {
+  box-shadow: -2px 2px 4px 0px #0003;
+}
+
+.theme-selector:disabled label,
+.theme-selector:disabled input:checked + label,
+.theme-selector:disabled input[value="light"]:checked + label,
+.theme-selector:disabled input[value="dark"]:checked + label {
+  cursor: default;
+  background-color: transparent;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+.link {
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding: 16px;
+}
+
+footer i {
+  font-style: normal;
+}
+
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

@@ -1,3 +1,4 @@
+import lightTheme from "./light.css?inline";
 import { ColorFixer } from "./inline-colors";
 
 export enum Theme {
@@ -14,16 +15,34 @@ export const SKIP_SELECTORS = [
   "[data-stack-item-kind]",
 ];
 
-/**
- * Apply the specified theme to the document.
- * @param theme The theme to apply (light or dark).
- */
-export function applyTheme(theme: Theme, fixer: ColorFixer): void {
-  if (theme === Theme.light) {
-    document.documentElement.setAttribute("data-elt-theme", theme);
-    fixer.start();
-  } else {
-    document.documentElement.removeAttribute("data-elt-theme");
-    fixer.stop();
+export class ThemeHandler {
+  constructor(private readonly fixer: ColorFixer) {
+    this.createStyleElement();
+  }
+
+  /**
+   * Apply the specified theme to the document.
+   * Starts or stops the color fixer based on the theme.
+   * @param theme The theme to apply (light or dark).
+   */
+  public apply(theme: Theme): void {
+    if (theme === Theme.light) {
+      document.documentElement.setAttribute("data-elt-theme", theme);
+      this.fixer.start();
+    } else {
+      document.documentElement.removeAttribute("data-elt-theme");
+      this.fixer.stop();
+    }
+  }
+
+  /**
+   * Creates and appends a style element for the light theme to the document.
+   */
+  private createStyleElement() {
+    const style = document.createElement("style");
+    style.setAttribute("id", "elt-theme");
+    style.textContent = lightTheme;
+
+    document.documentElement.append(style);
   }
 }

@@ -3,17 +3,33 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { Endstep, type Guest } from "./pages/endstep";
 
 test.describe("Extension", () => {
-  test("the popup counter increases on click", async ({
-    page,
+  test("the popup switches endstep.cc to the dark theme without a reload", async ({
+    context,
     extensionId,
   }) => {
-    await page.goto(`chrome-extension://${extensionId}/popup.html`);
+    const endstep = await context.newPage();
+    await endstep.goto("https://endstep.cc/");
 
-    const button = page.getByRole("button");
-    await expect(button).toHaveText("count is 0");
+    await expect(endstep.locator("html")).toHaveAttribute(
+      "data-elt-theme",
+      "light",
+    );
 
-    await button.click();
-    await expect(button).toHaveText("count is 1");
+    const popup = await context.newPage();
+    await popup.goto(`chrome-extension://${extensionId}/popup.html`);
+    await endstep.bringToFront();
+    await popup.reload();
+
+    const dark = popup.getByRole("radio", { name: "Dark" });
+    await expect(dark).toBeEnabled();
+
+    await popup.locator('label[for="dark"]').click();
+    await expect(dark).toBeChecked();
+
+    await expect(endstep.locator("html")).not.toHaveAttribute("data-elt-theme");
+
+    await endstep.close();
+    await popup.close();
   });
 });
 

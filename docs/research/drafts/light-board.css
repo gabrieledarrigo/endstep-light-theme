@@ -91,3 +91,24 @@ html[data-elt-theme="light"] [data-turn="opp"][data-half="opp"] {
    card, not on the page, so it stays a dark pill with cream text. The fixer leaves the whole
    stack item alone: add '[data-stack-item-kind]' to CARD_ART_SELECTORS in src/theme/theme.ts.
    Mapping the colours gives a half-transparent light pill over black, which reads as grey. */
+
+/* --- Added 2026-11-14: the announcement banner --- */
+
+/* The site sets the banner link and icon colours as inline var() references, which the
+   inline fixer does not rewrite, so the rules need !important. Celebration banners use the
+   accent, maintenance banners the warning colour; both are too pale as 12 px text on the
+   surface (1.94:1 and 3.59:1). Needs the token --color-warning-ink: #895708 (5.87:1). */
+
+html[data-elt-theme="light"]
+  .wr-announcement
+  :is(a, svg)[style*="var(--color-accent)"] {
+  color: var(--color-accent-chrome) !important;
+  border-color: var(--color-accent-chrome) !important;
+}
+
+html[data-elt-theme="light"]
+  .wr-announcement
+  :is(a, svg)[style*="var(--color-warning)"] {
+  color: var(--color-warning-ink) !important;
+  border-color: var(--color-warning-ink) !important;
+}
