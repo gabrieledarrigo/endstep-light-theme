@@ -11,6 +11,7 @@ import {
   NEAR,
   SITE,
   TEXT_TOKENS,
+  TOKENS_CSS,
   candidateTokens,
   fetchText,
   isBlackOrWhite,
@@ -421,6 +422,16 @@ function analyse(
   return { overrides, report };
 }
 
+/**
+ * Puts the generated block in place of the old one, and keeps the hand-written rules before and after it.
+ */
+function replaceBlock(lightCss: string, block: string): string {
+  const [before = "", rest = ""] = lightCss.split(BLOCK_START);
+  const after = (rest.split(BLOCK_END)[1] ?? "").trim();
+  const head = `${before.trimEnd()}\n\n${block}`;
+  return after ? `${head}\n${after}\n` : head;
+}
+
 function render(overrides: Override[]): string {
   const lines = [BLOCK_START, ""];
   for (const { atRules, selector, declarations } of overrides) {
@@ -476,6 +487,8 @@ function render(overrides: Override[]): string {
  * - token definitions that light.css already overrides, and the Tailwind default palette
  * - @keyframes, which a selector cannot scope. The report lists them.
  *
+ * With --write, it replaces only the generated block. The hand-written rules before and after the block stay.
+ *
  * To handle a colour under "review", write a rule by hand in light.css, above the generated block.
  * The script then skips that selector.
  */
@@ -490,7 +503,7 @@ async function main(): Promise<void> {
   const sheets = await downloadStylesheets(outDir);
   const lightCss = await readFile(LIGHT_CSS, "utf8");
   const dark = readTokens(await readFile(DARK_TOKENS, "utf8"), ":root");
-  const light = readTokens(lightCss, LIGHT_SELECTOR);
+  const light = readTokens(await readFile(TOKENS_CSS, "utf8"), LIGHT_SELECTOR);
   const mapper = new Mapper(dark, light);
   const { overrides, report } = analyse(
     sheets,
@@ -521,8 +534,7 @@ async function main(): Promise<void> {
 
   const block = render(overrides);
   if (flag === "--write") {
-    const manual = (lightCss.split(BLOCK_START)[0] ?? "").trimEnd();
-    await writeFile(LIGHT_CSS, `${manual}\n\n${block}`);
+    await writeFile(LIGHT_CSS, replaceBlock(lightCss, block));
   } else {
     console.log(block);
   }

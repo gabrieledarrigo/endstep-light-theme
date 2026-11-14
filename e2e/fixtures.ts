@@ -2,11 +2,20 @@ import { test as base, chromium, type BrowserContext } from "@playwright/test";
 import path from "node:path";
 import { Endstep, type Guest } from "./pages/endstep";
 
+declare const chrome: {
+  storage: {
+    local: {
+      clear(): Promise<void>;
+    };
+  };
+};
+
 type TestFixtures = {
-  extensionId: string;
+  freshStorage: void;
 };
 
 type WorkerFixtures = {
+  extensionId: string;
   extensionContext: BrowserContext;
   guest: Guest;
   game: URL;
@@ -35,15 +44,32 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
   context: async ({ extensionContext }, use) => {
     await use(extensionContext);
   },
-  extensionId: async ({ extensionContext }, use) => {
-    const page = await extensionContext.newPage();
+  extensionId: [
+    async ({ extensionContext }, use) => {
+      const page = await extensionContext.newPage();
 
-    await page.goto("chrome://extensions");
-    const id = await page.locator("extensions-item").first().getAttribute("id");
-    await page.close();
+      await page.goto("chrome://extensions");
+      const id = await page
+        .locator("extensions-item")
+        .first()
+        .getAttribute("id");
+      await page.close();
 
-    await use(id!);
-  },
+      await use(id!);
+    },
+    { scope: "worker" },
+  ],
+  freshStorage: [
+    async ({ extensionContext, extensionId }, use) => {
+      await use();
+
+      const page = await extensionContext.newPage();
+      await page.goto(`chrome-extension://${extensionId}/popup.html`);
+      await page.evaluate(() => chrome.storage.local.clear());
+      await page.close();
+    },
+    { auto: true },
+  ],
   guest: [
     async ({ extensionContext }, use) => {
       const page = await extensionContext.newPage();

@@ -14,7 +14,7 @@ async function renderDescription() {
 
   const current = tabs
     .filter((tab) => {
-      return tab.url?.includes("https://endstep.cc") ?? false;
+      return tab.url?.startsWith("https://endstep.cc") ?? false;
     })
     .at(0);
 
@@ -23,7 +23,8 @@ async function renderDescription() {
 
   if (!current) {
     description.innerHTML = ` Open <a href="https://endstep.cc" target="_blank" rel="noopener noreferrer" class="link">endstep.cc</a> to see the theme.`;
-    themeSelector.setAttribute("disabled", "true");
+  } else {
+    themeSelector.removeAttribute("disabled");
   }
 }
 
@@ -64,8 +65,8 @@ function handleThemeChange() {
 }
 
 (async function main() {
-  await renderDescription();
   renderVersion();
-  handleThemeChange();
   await setThemeValue();
+  handleThemeChange();
+  await renderDescription();
 })();

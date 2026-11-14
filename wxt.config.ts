@@ -6,6 +6,6 @@ export default defineConfig({
   outDir: process.env.WXT_ENDSTEP_LIGHT_THEME_OUT_DIR ?? ".output",
   manifest: {
     host_permissions: ["https://endstep.cc/*"],
-    permissions: ["storage", "activeTab"],
+    permissions: ["storage"],
   },
 });

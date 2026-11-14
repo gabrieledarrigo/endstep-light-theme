@@ -4,12 +4,12 @@ import {
   DARK_TOKENS,
   EXACT,
   KEEP,
-  LIGHT_CSS,
   LIGHT_SELECTOR,
   NEAR,
   ROOT,
   SITE,
   TEXT_TOKENS,
+  TOKENS_CSS,
   candidateTokens,
   fetchText,
   isBlackOrWhite,
@@ -273,7 +273,7 @@ async function main(): Promise<void> {
   await mkdir(outDir, { recursive: true });
   const bundles = await downloadBundles(outDir);
   const dark = readTokens(await readFile(DARK_TOKENS, "utf8"), ":root");
-  const light = readTokens(await readFile(LIGHT_CSS, "utf8"), LIGHT_SELECTOR);
+  const light = readTokens(await readFile(TOKENS_CSS, "utf8"), LIGHT_SELECTOR);
   const found = collect(bundles);
   const mapping = buildMap(found, dark, light);
 

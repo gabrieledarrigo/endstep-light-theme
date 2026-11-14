@@ -121,7 +121,7 @@ Acceptance criteria:
 - [ ] If the user turns the switch off, every open endstep.cc tab shows the original theme at once, without a reload.
 - [ ] If the user turns the switch on, every open endstep.cc tab shows the light theme at once, without a reload.
 - [ ] The popup is designed so that more themes can be added later.
-- [ ] If the active tab is not on endstep.cc, the popup shows "Open endstep.cc to see the theme" instead of the control.
+- [ ] If the active tab is not on endstep.cc, the popup shows "Open endstep.cc to see the theme" and disables the control.
 - [ ] The popup shows the extension version in small text.
 - [ ] If the user closes and reopens the browser, the last choice is still active.
 - [ ] The choice is stored in the browser. It is not synced to other devices.
@@ -131,12 +131,12 @@ Technical tasks:
 
 1. Create `src/entrypoints/popup/index.html`, `src/entrypoints/popup/main.ts`, and `src/entrypoints/popup/style.css`.
 2. Create `src/storage.ts`. Define the item with `storage.defineItem<"light" | "dark">("local:theme", { fallback: "light" })` from `#imports`. The `local:` prefix means browser-local storage, not synced. The fallback gives the light theme on a fresh install.
-3. Build the control as a radio group: a `<fieldset>` with `role="radiogroup"`, one `<input type="radio">` per theme, and a visible `<label>` per option. Values: `light`, `dark`.
+3. Build the control as a radio group: a `<fieldset>`, one `<input type="radio">` per theme, and a visible `<label>` per option. Values: `light`, `dark`.
 4. In the popup, read the current choice with `theme.getValue()` and check the matching radio.
 5. On change, write the new value with `theme.setValue(value)`.
 6. In the content script, read the item at start. Set or remove the `data-elt-theme` attribute.
 7. In the content script, subscribe with `theme.watch(value => ...)`. Set or remove the attribute on every change. This updates every open endstep.cc tab at once.
-8. Find the active tab with `browser.tabs.query({ active: true, currentWindow: true })`. If its URL does not start with `https://endstep.cc/`, hide the control and show the message. The URL is available because the extension has the host permission for endstep.cc.
+8. Find the active tab with `browser.tabs.query({ active: true, currentWindow: true })`. Start with the control disabled. If its URL starts with `https://endstep.cc/`, enable the control. If not, show the message. The URL is available because the extension has the host permission for endstep.cc.
 9. Show the version from `browser.runtime.getManifest().version`.
 10. Add the link to `https://github.com/gabrieledarrigo/endstep-light-theme/issues` with `target="_blank"`.
 11. Add an end-to-end test: open the popup page of the built extension, select "dark", and check that an open endstep.cc tab lost the `data-elt-theme` attribute without a reload.

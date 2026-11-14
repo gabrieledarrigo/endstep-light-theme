@@ -25,7 +25,7 @@ export class ThemeHandler {
    * Starts or stops the color fixer based on the theme.
    * @param theme The theme to apply (light or dark).
    */
-  public async apply(theme: Theme): Promise<void> {
+  public apply(theme: Theme): void {
     if (theme === Theme.light) {
       document.documentElement.setAttribute("data-elt-theme", theme);
       this.fixer.start();

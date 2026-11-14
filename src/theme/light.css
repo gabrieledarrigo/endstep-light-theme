@@ -982,3 +982,17 @@ html[data-elt-theme="light"] [data-turn="opp"][data-half="opp"] {
     inset 0 3px var(--color-stop-opp),
     inset 0 120px 80px -90px #347ec426;
 }
+
+html[data-elt-theme="light"]
+  .wr-announcement
+  :is(a, svg)[style*="var(--color-accent)"] {
+  color: var(--color-accent-chrome) !important;
+  border-color: var(--color-accent-chrome) !important;
+}
+
+html[data-elt-theme="light"]
+  .wr-announcement
+  :is(a, svg)[style*="var(--color-warning)"] {
+  color: var(--color-warning-ink) !important;
+  border-color: var(--color-warning-ink) !important;
+}
