@@ -1,22 +1,23 @@
 import { defineContentScript } from "#imports";
 import {
-  applyTheme,
   SKIP_SELECTORS,
   ColorFixer,
-  lightTheme,
-  Theme,
+  themePreference,
+  ThemeHandler,
 } from "@/theme";
 
 export default defineContentScript({
   matches: ["https://endstep.cc/*"],
   runAt: "document_start",
-  main() {
-    const style = document.createElement("style");
-    style.setAttribute("id", "elt-theme");
-    style.textContent = lightTheme;
+  async main() {
+    const theme = await themePreference.getValue();
 
-    document.documentElement.append(style);
+    const fixer = new ColorFixer(SKIP_SELECTORS);
+    const handler = new ThemeHandler(fixer);
+    handler.apply(theme);
 
-    applyTheme(Theme.light, new ColorFixer(SKIP_SELECTORS));
+    themePreference.watch((newTheme) => {
+      handler.apply(newTheme);
+    });
   },
 });
