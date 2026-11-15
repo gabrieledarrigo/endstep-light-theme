@@ -26,8 +26,16 @@ main {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   border-bottom: 1px solid var(--color-border-default);
   padding: 16px;
+}
+
+.logo {
+  color: var(--color-accent-chrome);
+  flex: none;
 }
 
 header h1 {
@@ -109,7 +117,6 @@ footer {
   align-items: center;
   margin-top: auto;
   padding: 16px;
-  border-top: 1px solid var(--color-border-strong);
 }
 
 #version {

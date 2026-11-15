@@ -21,9 +21,9 @@ html[data-elt-theme="light"] {
   --color-face-down-edge: #969289;
   --color-face-down-surface: #c8c4bc;
   --color-half-opponent-edge: #3e65961f;
-  --color-half-opponent: #ebe5dd;
+  --color-half-opponent: #ede7db;
   --color-half-self-edge: #e5ad3429;
-  --color-half-self: #eee9dc;
+  --color-half-self: #ede7db;
   --color-hover: #d9d4c9;
   --color-info-muted: #dfe9f5;
   --color-info: #1362b7;
@@ -69,10 +69,10 @@ html[data-elt-theme="light"] {
   --color-warning: #b97500;
   --color-warning-ink: #7e4f0e;
   --color-white: #fff;
-  --color-zone-battlefield: #ebe8df;
+  --color-zone-battlefield: #ede7db;
   --color-zone-exile: #e9e6ef;
   --color-zone-graveyard: #efe5e9;
-  --color-zone-hand: #e0dacf;
+  --color-zone-hand: #e5dfd3;
   --color-zone-stack: #e6dbc5;
   --log-bg: #f3f0e9;
   --log-border-soft: #7c530740;
@@ -121,5 +121,6 @@ html[data-elt-theme="light"] {
   --es-you-line: #937540b2;
   --elt-field-border: #858076;
   --elt-blade-opp: #e5ceb6;
+  --elt-decision: #ecdcbd;
   --elt-rail: #e5dfd3;
 }
