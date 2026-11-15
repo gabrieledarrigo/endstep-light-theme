@@ -115,17 +115,17 @@ As a player, I want a switch in the popup that remembers my choice, so that I ca
 
 Acceptance criteria:
 
-- [ ] A click on the extension icon in the browser toolbar opens a popup.
-- [ ] The popup shows the extension name, a switch, a short explanation, and a link to the GitHub issues page.
-- [ ] On a fresh install the switch is on and endstep.cc shows the light theme.
-- [ ] If the user turns the switch off, every open endstep.cc tab shows the original theme at once, without a reload.
-- [ ] If the user turns the switch on, every open endstep.cc tab shows the light theme at once, without a reload.
-- [ ] The popup is designed so that more themes can be added later.
-- [ ] If the active tab is not on endstep.cc, the popup shows "Open endstep.cc to see the theme" and disables the control.
-- [ ] The popup shows the extension version in small text.
-- [ ] If the user closes and reopens the browser, the last choice is still active.
-- [ ] The choice is stored in the browser. It is not synced to other devices.
-- [ ] The visual design follows the design file. _The design is in progress._
+- [x] A click on the extension icon in the browser toolbar opens a popup.
+- [x] The popup shows the extension name, a switch, a short explanation, and a link to the GitHub issues page.
+- [x] On a fresh install the switch is on and endstep.cc shows the light theme.
+- [x] If the user turns the switch off, every open endstep.cc tab shows the original theme at once, without a reload.
+- [x] If the user turns the switch on, every open endstep.cc tab shows the light theme at once, without a reload.
+- [x] The popup is designed so that more themes can be added later.
+- [x] If the active tab is not on endstep.cc, the popup shows "Open endstep.cc to see the theme" and disables the control.
+- [x] The popup shows the extension version in small text.
+- [x] If the user closes and reopens the browser, the last choice is still active.
+- [x] The choice is stored in the browser. It is not synced to other devices.
+- [x] The visual design follows the design file.
 
 Technical tasks:
 
@@ -150,7 +150,7 @@ As a maintainer, I want a release built and published from a git tag, so that a 
 
 Acceptance criteria:
 
-- [ ] A push of a tag `v*` builds one zip for Chrome and one for Firefox.
+- [x] A push of a tag `v*` builds one zip for Chrome and one for Firefox.
 - [ ] The workflow creates a GitHub Release for the tag and attaches the two zips.
 - [ ] The release notes list the merged pull requests, grouped by label.
 - [ ] If the store secrets exist, the workflow uploads the zips to the Chrome Web Store and to Firefox Add-ons.
@@ -160,7 +160,7 @@ Technical tasks:
 
 1. Create `.github/workflows/release.yml`. Trigger: tags `v*`. Steps: checkout, Node LTS, `npm ci`, `npm run zip`.
 2. Create the release with `gh release create` and `--generate-notes`, and attach the zips from `.output/`.
-3. Create `.github/release.yml` so that the generated notes group pull requests by label: `feature` and `enhancement` as "New", `bug` as "Fixed", `chore` and `docs` as "Other".
+3. Create `.github/release.yml` so that the generated notes group pull requests by label: `feature` and `enhancement` as "New", `bug` as "Fixed", `*` as "Other".
 4. Add a step that runs `npx wxt submit` with the secrets listed in `docs/stores.md`. Add an `if` condition so that the step runs only when `CHROME_EXTENSION_ID` is set.
 5. Document the release steps in `README.md`: bump the version in `package.json` in a pull request, merge, tag `vX.Y.Z` on `main`, push the tag.
 6. Test the workflow with a tag `v0.1.0` once the theme and the toggle are merged.
