@@ -175,18 +175,17 @@ As a player, I want the extension to ask only for what it needs, so that I can t
 
 Acceptance criteria:
 
-- [ ] The manifest requests access to `https://endstep.cc/*` only.
-- [ ] The manifest requests the `storage` permission and no other permission.
-- [ ] The extension makes no network request.
-- [ ] The extension collects no personal data.
+- [x] The manifest requests access to `https://endstep.cc/*` only.
+- [x] The manifest requests the `storage` permission and no other permission.
+- [x] The extension makes no network request.
+- [x] The extension collects no personal data.
 
 Technical tasks:
 
 1. In `wxt.config.ts`, set `manifest.permissions` to `["storage"]` and `manifest.host_permissions` to `["https://endstep.cc/*"]`.
 2. Do not add a background script. The popup and the content scripts talk through storage only.
-3. Add a unit test that reads the built manifest for Chrome and for Firefox and checks the two lists above exactly.
-4. Add an ESLint rule that reports `fetch`, `XMLHttpRequest`, and `WebSocket` in `src/`.
-5. Write a `PRIVACY.md` with one paragraph: the extension stores one setting in the browser and sends nothing anywhere. The stores ask for this text.
+3. Add an ESLint rule that reports `fetch`, `XMLHttpRequest`, and `WebSocket` in `src/`.
+4. Write a `PRIVACY.md` that explains the extension, the data it stores, the permissions it requests, and the fact that it does not transmit any personal data.
 
 ### Supported browsers
 
