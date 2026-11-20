@@ -36,22 +36,32 @@ For each store:
 3. Fill in the listing: name, short description, a 128 px icon, at least one screenshot (1280 x 800 px), and the privacy policy link. The link is the `PRIVACY.md` file on GitHub.
 4. Submit for review. Chrome takes from hours to days. Firefox takes from minutes to days.
 
-### 4. Credentials for the automation
+### 4. Chrome service account
 
-Run `npx wxt submit init` in the repository. It asks questions and tells you where to click to create each credential.
+The Chrome Web Store API v2 uses a Google Cloud service account. Follow the guide at https://developer.chrome.com/docs/webstore/service-accounts.
 
-At the end you have seven values. Add them as repository secrets in GitHub, under Settings, Secrets and variables, Actions:
+1. Open https://console.cloud.google.com and create a project.
+2. Enable the "Chrome Web Store API" in the project.
+3. Create a service account. It needs no roles.
+4. Open the Chrome Web Store dashboard, go to Account, and add the email of the service account.
+5. In the Cloud Console, open the service account, go to Keys, and create a JSON key.
 
-- `CHROME_EXTENSION_ID`
-- `CHROME_CLIENT_ID`
-- `CHROME_CLIENT_SECRET`
-- `CHROME_REFRESH_TOKEN`
-- `FIREFOX_EXTENSION_ID`
-- `FIREFOX_JWT_ISSUER`
-- `FIREFOX_JWT_SECRET`
+### 5. Credentials for the automation
+
+1. Run `npx wxt submit init`. Choose the API version `v2`.
+2. If it asks for the service account, copy the `client_email` and `private_key` fields from the JSON key.
+3. The command writes the values to `.env.submit`. Git ignores this file. Do not commit it.
+4. Add these seven values as repository secrets in GitHub, under Settings, Secrets and variables, Actions:
+   - `CHROME_EXTENSION_ID`
+   - `CHROME_PUBLISHER_ID`
+   - `CHROME_SERVICE_ACCOUNT_CLIENT_EMAIL`
+   - `CHROME_SERVICE_ACCOUNT_PRIVATE_KEY`
+   - `FIREFOX_EXTENSION_ID`
+   - `FIREFOX_JWT_ISSUER`
+   - `FIREFOX_JWT_SECRET`
+5. Run `npm run zip`, then check the credentials with `npx wxt submit --dry-run` and the three zip flags. The command reads `.env.submit`.
+6. Delete the JSON key file.
+
+`.env.example` lists every variable that `npx wxt submit init` writes. It contains no secret values.
 
 From the next tag, the release workflow uploads the zips by itself.
-
-## When to do this
-
-Not now. The accounts are useful at the "Release" milestone. Everything before it works without them.

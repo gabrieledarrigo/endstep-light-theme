@@ -24,6 +24,9 @@ web-ext.config.ts
 *.njsproj
 *.sln
 *.sw?
+*.env
+*.env.submit
+!.env.example
 
 # Playwright test results
 test-results/
