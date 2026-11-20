@@ -150,11 +150,11 @@ As a maintainer, I want a release built and published from a git tag, so that a 
 
 Acceptance criteria:
 
-- [ ] A push of a tag `v*` builds one zip for Chrome and one for Firefox.
-- [ ] The workflow creates a GitHub Release for the tag and attaches the two zips.
-- [ ] The release notes list the merged pull requests, grouped by label.
-- [ ] If the store secrets exist, the workflow uploads the zips to the Chrome Web Store and to Firefox Add-ons.
-- [ ] If the store secrets do not exist, the workflow skips the upload and still succeeds.
+- [x] A push of a tag `v*` builds one zip for Chrome and one for Firefox.
+- [x] The workflow creates a GitHub Release for the tag and attaches the two zips.
+- [x] The release notes list the merged pull requests, grouped by label.
+- [x] If the store secrets exist, the workflow uploads the zips to the Chrome Web Store and to Firefox Add-ons.
+- [x] If the store secrets do not exist, the workflow skips the upload and still succeeds.
 
 Technical tasks:
 
