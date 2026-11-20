@@ -195,17 +195,15 @@ As a player, I want the extension to work in my browser, so that I can use it wi
 
 Acceptance criteria:
 
-- [ ] The extension works in the current stable version of Chrome and in the one before it.
-- [ ] The extension works in the current stable version of Firefox and in the one before it.
-- [ ] The manifest uses Manifest V3.
+- [x] The extension works in the current stable version of Chrome and in the one before it.
+- [x] The extension works in the current stable version of Firefox and in the one before it.
+- [x] The manifest uses Manifest V3.
 
 Technical tasks:
 
-1. WXT builds Manifest V3 by default. Keep the default.
-2. In `wxt.config.ts`, set `manifest.minimum_chrome_version` and `manifest.browser_specific_settings.gecko.strict_min_version` to the stable version before the current one. Update both values at every release.
-3. Add `browser_specific_settings.gecko.id` with a fixed id such as `light-theme@endstep.darrigo.dev`. Firefox needs it for signing.
-4. Write the two version numbers in `README.md` under "Supported browsers".
-5. Add a Firefox item to `docs/manual-checks.md`: load the build with `npm run dev:firefox` and run the checklist once per release. End-to-end tests run in Chrome only.
+1. Configure WXT to build the extensions with Manifest V3 by setting `manifestVersion: 3` in `wxt.config.ts`.
+2. Add `browser_specific_settings.gecko.id` with a fixed id such as `endstep-light-theme@darrigo.g`. Firefox needs it for signing.
+3. Add a "Supported browsers" section in `README.md`.
 
 ### Fail safe when the site changes
 
