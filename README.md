@@ -28,6 +28,7 @@ Endstep Light Theme currently supports these browsers:
 | ------- | ------------------------------------ |
 | Chrome  | Current stable and the one before it |
 | Firefox | Current stable and the one before it |
+| Edge    | Current stable and the one before it |
 
 ## Privacy
 
@@ -53,8 +54,8 @@ To release:
 
 The release is then automated through GitHub Actions. When a tag matching `v*` is pushed, the workflow:
 
-- Builds the extension for Chrome and Firefox
+- Builds the extension for Chrome, Firefox, and Edge
 - Creates a GitHub Release with the generated zips
-- Optionally uploads them to the respective stores if the necessary secrets are available.
+- Uploads them to the respective stores
 
 The release notes are automatically generated.

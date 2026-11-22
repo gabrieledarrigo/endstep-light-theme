@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    env:
-      CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
 
     steps:
       - uses: actions/checkout@v4
@@ -33,16 +31,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Submit to stores
-        if: env.CHROME_EXTENSION_ID != ''
         run: |
           npx wxt submit \
              --chrome-api-version v2 \
              --chrome-zip .output/*-chrome.zip \
-             --firefox-zip .output/*-firefox.zip \--firefox-sources-zip .output/*-sources.zip
+             --firefox-zip .output/*-firefox.zip \
+             --firefox-sources-zip .output/*-sources.zip \
+             --edge-zip .output/*-edge.zip
         env:
+          CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
           CHROME_PUBLISHER_ID: ${{ secrets.CHROME_PUBLISHER_ID }}
           CHROME_SERVICE_ACCOUNT_CLIENT_EMAIL: ${{ secrets.CHROME_SERVICE_ACCOUNT_CLIENT_EMAIL }}
           CHROME_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.CHROME_SERVICE_ACCOUNT_PRIVATE_KEY }}
           FIREFOX_EXTENSION_ID: ${{ secrets.FIREFOX_EXTENSION_ID }}
           FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
           FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
+          EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID }}
+          EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
+          EDGE_API_KEY: ${{ secrets.EDGE_API_KEY }}

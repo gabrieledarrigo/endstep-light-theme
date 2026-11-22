@@ -107,7 +107,7 @@ A pull request is done when:
 - Versions follow semantic versioning: `MAJOR.MINOR.PATCH`. Store manifests accept only numbers, so no suffix such as `-beta`.
 - `package.json` holds the version. The build copies it into the manifests.
 - A release is a git tag such as `v1.2.0`. The version is bumped per release, not per pull request.
-- A GitHub Actions workflow runs on the tag. It builds one zip for Chrome and one for Firefox, creates the GitHub Release, and attaches the zips.
+- A GitHub Actions workflow runs on the tag. It builds one zip for Chrome, one for Firefox, one for Edge, creates the GitHub Release, and attaches the zips.
 - Release notes are generated from the titles of the merged pull requests, grouped by label.
 - Upload to the Chrome Web Store and to Firefox Add-ons is automated in the same workflow when the store credentials are available as repository secrets.
 - Safari packaging is out of scope for now.
