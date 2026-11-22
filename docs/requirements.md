@@ -10,7 +10,7 @@ The extension sets a light theme on every page of endstep.cc.
 The extension shows a toggle. The toggle activates the light theme. The default is on.
 If the toggle is off, the extension shows the original theme of the site.
 
-Supported browsers: Chrome and Firefox.
+Supported browsers: Chrome, Firefox, Edge.
 
 ## Technical choices
 
@@ -164,6 +164,49 @@ Technical tasks:
 4. Add a step that runs `npx wxt submit` with the secrets listed in `docs/stores.md`. Add an `if` condition so that the step runs only when `CHROME_EXTENSION_ID` is set.
 5. Document the release steps in `README.md`: bump the version in `package.json` in a pull request, merge, tag `vX.Y.Z` on `main`, push the tag.
 6. Test the workflow with a tag `v0.1.0` once the theme and the toggle are merged.
+
+### Upload to Edge Add-ons
+
+Issue: [#19](https://github.com/gabrieledarrigo/endstep-light-theme/issues/19)
+
+As a maintainer, I want the release workflow to upload the extension to Edge Add-ons, so that Edge users get each release.
+
+This requirement changes the release flow of #5 in two points.
+
+In #5, the workflow skipped the upload if the store secrets did not exist. Now the maintainer sets every secret. If a secret is missing, the workflow must fail, so that the maintainer sees the error.
+
+In #5, the workflow built one zip for Chrome and one for Firefox. Now it also builds one zip for Edge.
+
+Acceptance criteria:
+
+- [ ] `npm run zip` builds one zip for Chrome, one for Firefox, and one for Edge.
+- [ ] The GitHub Release of the tag has the Edge zip.
+- [ ] A push of a tag `v*` uploads the Edge zip to Edge Add-ons and submits it for review.
+- [ ] One step in the release workflow uploads the zips to the Chrome Web Store, Firefox Add-ons, and Edge Add-ons.
+- [ ] The step has no `if` condition. It runs on every release.
+- [ ] If the upload to one store fails, the release workflow fails.
+- [ ] `docs/stores.md` explains how to get the Edge credentials and how to renew the API key.
+- [ ] `.env.example` lists the Edge variables.
+
+Technical tasks:
+
+1. In Partner Center, open Microsoft Edge, then "Publish API". Create the API credentials.
+2. Copy the client ID and the API key. Copy the product ID from the overview page of the extension.
+3. Add three repository secrets: `EDGE_PRODUCT_ID`, `EDGE_CLIENT_ID`, `EDGE_API_KEY`.
+4. In `package.json`, add the script `"zip:edge": "wxt zip -b edge"`. Add `npm run zip:edge` to the `zip` script.
+5. In `.github/workflows/release.yml`, remove the `if` condition from the step "Submit to stores".
+6. Remove the job-level `env` block. Move `CHROME_EXTENSION_ID` to the `env` of the step "Submit to stores".
+7. In the same step, add `--edge-zip .output/*-edge.zip` to `npx wxt submit`. Add the three Edge secrets to the step `env`.
+8. Put `--firefox-sources-zip` on its own line. Now it follows `\` on the line of `--firefox-zip`.
+9. Add `EDGE_PRODUCT_ID`, `EDGE_CLIENT_ID`, and `EDGE_API_KEY` to `.env.example`, with empty values.
+10. Add an Edge section to `docs/stores.md`: the account, the first upload by hand, the API credentials, and the secrets.
+11. In the same section, write that the API key expires. Write how to create a new key and update the secret.
+12. In `docs/stores.md`, explain how to upload to one store by hand, for example `npx wxt submit --edge-zip .output/*-edge.zip`.
+13. Write the reason for task 12. If one store fails, a second run can fail on the other stores, because they already have that version.
+14. In `docs/stores.md`, remove the text that says the upload runs only when the credentials exist. Add Edge Add-ons to the list of stores.
+15. Run `npm run zip`. Check the credentials with `npx wxt submit --dry-run` and the zip flags of task 7.
+
+Today the Edge zip has the same content as the Chrome zip. A separate zip gives each store a zip with its name, and lets Edge get its own settings later.
 
 ## Non-functional requirements
 
